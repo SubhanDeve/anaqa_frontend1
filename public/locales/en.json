@@ -1,0 +1,13 @@
+{
+  "pages": {
+    "dashboard": {
+      "welcomeMessage": "Welcome to ANAQA"
+    }
+  },
+  "routes": {
+    "admin": {
+      "Dashboard": "Dashboard",
+      "Users": "Users"
+    }
+  }
+}

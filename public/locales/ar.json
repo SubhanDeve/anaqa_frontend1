@@ -1,0 +1,13 @@
+{
+  "pages": {
+    "dashboard": {
+      "welcomeMessage": "مرحبًا بك في ANAQA"
+    }
+  },
+  "routes": {
+    "admin": {
+      "Dashboard": "لوحة القيادة",
+      "Users": "المستخدمون"
+    }
+  }
+}

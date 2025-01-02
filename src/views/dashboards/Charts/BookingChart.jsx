@@ -35,7 +35,7 @@ const BookingChart = () => {
         display: 'flex',
         gap: '30px',
         flexDirection: 'column',
-        justifyContent: 'center',
+        justifyContent: 'space-around',
         height: '100%'
       }}
     >
@@ -53,7 +53,13 @@ const BookingChart = () => {
           </Select>
         </Box>
       </Box>
-      <Box sx={{ display: 'grid', alignItems: 'center', gap: '8px' }}>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '28px',
+        }}
+      >
         {progressData.map((item, index) => (
           <CustomProgressBar key={index} title={item.title} value={item.value} count={item.count} />
         ))}

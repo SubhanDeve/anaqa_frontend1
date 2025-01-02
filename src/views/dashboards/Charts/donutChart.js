@@ -1,7 +1,9 @@
 // External Imports
 import React from 'react'
 import ReactApexcharts from 'src/@core/components/react-apexcharts'
-import { Box, Typography } from '@mui/material'
+import { Box, Card, Typography } from '@mui/material'
+import Heading from 'src/@core/components/Heading'
+import CustomOutlineButton from 'src/@core/components/custom-button'
 
 
 const DonutChart = () => {
@@ -100,14 +102,16 @@ const DonutChart = () => {
   }
 
   return (
-    <Box xs={12} md={12} sx={{ backgroundColor: 'white', borderRadius: '16px', height: '264px' }}>
+    <Card elevation={0} sx={{ padding: '18px 14px', height: '100%'}}>
 
+      <Box className='radialBar-chart'>
+        <ReactApexcharts options={optionsData} series={seriesData} type='radialBar' width={'100%'}  />
+      </Box>
+      <Box>
+        <CustomOutlineButton text='See Details' width={'100%'} />
+      </Box>
 
-      <div className='radialBar-chart'>
-        <ReactApexcharts options={optionsData} series={seriesData} type='radialBar' height='340px' />
-      </div>
-
-    </Box>
+    </Card>
   )
 }
 

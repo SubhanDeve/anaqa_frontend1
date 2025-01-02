@@ -1,7 +1,7 @@
-import { Card, colors } from '@mui/material'
-import { color } from '@mui/system'
+import { Card } from '@mui/material'
+import { ca } from 'date-fns/locale'
 import React, { useState } from 'react'
-import ReactApexcharts from 'src/@core/components/react-apexcharts'
+import ReactApexChart from 'src/@core/components/react-apexcharts'
 
 const LineCard = () => {
   const [selectedItem, setSelectedItem] = useState('')
@@ -9,13 +9,16 @@ const LineCard = () => {
   const options = {
     chart: {
       type: 'area',
+      toolbar: {
+        show: false
+      },
       dropShadow: {
         enabled: true,
-        opacity: 0.5, // Reduce opacity for a subtle shadow
-        blur: 10,
+        opacity: 100,
+        blur: 20,
         left: 0,
         top: 10,
-        color: '#CD929D'
+        colors: ['#CD929D', '#FAF5F6']
       }
     },
     dataLabels: {
@@ -23,26 +26,41 @@ const LineCard = () => {
     },
     stroke: {
       curve: 'smooth',
-      width: 4,
-      colors: ['#CD929D'] // Line color
+      width: 2,
+      colors: ['#CD929D', '#FAF5F6']
     },
-    series: [
-      {
-        name: 'Series 1',
-        data: [45, 52, 38, 45, 19, 23, 2]
+    markers: {
+      size: 5,
+      colors: ['#CD929D'],
+      strokeColors: '#CD929D',
+      strokeWidth: 2,
+      hover: {
+        size: 7
       }
-    ],
+    },
+    tooltip: {
+      enabled: true,
+      custom: function ({ series, seriesIndex, dataPointIndex, w }) {
+        const value = series[seriesIndex][dataPointIndex]
+        return `
+          <div style="padding: 5px; background-color: #FAF5F6; color: #CD929D; border-radius: 5px;">
+            <strong>$${value * 10}</strong><br />
+            ${value} Bookings
+          </div>
+        `
+      }
+    },
     fill: {
       type: 'gradient',
       gradient: {
         shade: 'light',
-        type: 'vertical', // Ensures gradient "falls" under the line
-        shadeIntensity: 100,
-        gradientToColors: ['#CD929D'], // The gradient falls to white or another background color
+        type: 'vertical',
+        shadeIntensity: 1,
+        gradientToColors: ['#CD929D', '#FAF5F6'],
         inverseColors: true,
-        opacityFrom: 100, // Starting opacity at the line
-        opacityTo: 0, // Ending opacity at the bottom
-        stops: [0, 100] // Gradient stops from top (line) to bottom
+        opacityFrom: 0.8,
+        opacityTo: 0,
+        stops: [0, 90, 100]
       }
     },
     grid: {
@@ -56,20 +74,36 @@ const LineCard = () => {
           show: false
         }
       }
+    },
+    xaxis: {
+      categories: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+      labels: {
+        style: {
+          colors: '#B0B0B0'
+        }
+      }
+    },
+    yaxis: {
+      categories: ['0', '100', '200', '300', '400', '500'],
+      labels: {
+        style: {
+          colors: '#B0B0B0'
+        }
+      }
     }
   }
 
   const series = [
     {
-      name: 'Amount',
-      data: [30, 40, 35, 50, 49, 60, 70]
+      name: 'Bookings',
+      data: [20, 40, 30, 50, 80, 40, 30]
     }
   ]
 
   return (
-    <Card elevation={0}>
+    <Card elevation={0} style={{ padding: '20px', borderRadius: '10px' }}>
       <div id='chart'>
-        <ReactApexcharts options={options} series={series} type='line' width={'100%'} height={'360px'} />
+        <ReactApexChart options={options} series={series} type='area' width={'100%'} height={'360px'} />
       </div>
     </Card>
   )

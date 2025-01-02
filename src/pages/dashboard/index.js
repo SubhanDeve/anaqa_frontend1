@@ -14,6 +14,9 @@ import HeaderCard from 'src/views/dashboards/HeaderCard'
 import DonutChart from 'src/views/dashboards/Charts/donutChart'
 import Table from 'src/views/dashboards/Table'
 import BookingChart from 'src/views/dashboards/Charts/BookingChart'
+import ServicesChart from 'src/views/dashboards/Charts/ServicesChart'
+import SaloonSuggestions from 'src/views/dashboards/Charts/SaloonSuggestions'
+import RequestCard from 'src/views/dashboards/Charts/RequestCard'
 
 const Dashboard = () => {
   const { language } = useLanguage()
@@ -41,16 +44,16 @@ const Dashboard = () => {
           <BookingChart />
         </Grid>
         <Grid item xs={12} md={4}>
-          <DonutChart />
+          <ServicesChart />
         </Grid>
         <Grid item xs={12} md={8}>
           <Table />
         </Grid>
         <Grid item xs={12} md={8}>
-          <Table />
+          <SaloonSuggestions />
         </Grid>
         <Grid item xs={12} md={4}>
-          <DonutChart />
+          <RequestCard />
         </Grid>
       </Grid>
     </Box>

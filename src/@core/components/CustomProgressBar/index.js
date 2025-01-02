@@ -3,7 +3,7 @@ import React from 'react'
 
 const CustomProgressBar = ({ title, value, count }) => {
   return (
-    <>
+    <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '8px' }}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <Typography sx={{ fontSize: '14px', fontWeight: '600', lineHeight: '18px' }}>{title}</Typography>
         <Typography sx={{ fontSize: '16px', fontWeight: '500', lineHeight: '20px' }}>{count}</Typography>
@@ -11,7 +11,7 @@ const CustomProgressBar = ({ title, value, count }) => {
       <Box>
         <LinearProgress variant='determinate' value={value} sx={{ width: '100%', height: '12px' }} />
       </Box>
-    </>
+    </Box>
   )
 }
 

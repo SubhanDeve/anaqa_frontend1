@@ -51,16 +51,18 @@ import { LanguageProvider } from 'src/context/LanguageContext'
 const clientSideEmotionCache = createEmotionCache()
 
 // ** Pace Loader
-if (themeConfig.routingLoader) {
-  Router.events.on('routeChangeStart', () => {
-    NProgress.start()
-  })
-  Router.events.on('routeChangeError', () => {
-    NProgress.done()
-  })
-  Router.events.on('routeChangeComplete', () => {
-    NProgress.done()
-  })
+if (process.browser || typeof window !== 'undefined') {
+  if (themeConfig.routingLoader) {
+    Router.events.on('routeChangeStart', () => {
+      NProgress.start()
+    })
+    Router.events.on('routeChangeError', () => {
+      NProgress.done()
+    })
+    Router.events.on('routeChangeComplete', () => {
+      NProgress.done()
+    })
+  }
 }
 
 const Guard = ({ children, authGuard, guestGuard }) => {

@@ -3,7 +3,6 @@ import * as React from 'react'
 import { Box, Grid, Typography } from '@mui/material'
 import { useAuth } from 'src/hooks/useAuth'
 
-import LineChart from 'src/views/dashboards/Charts/LineChart'
 import LineChart2 from 'src/views/dashboards/Charts/LineCard'
 import RightBoxDashboard from 'src/views/dashboards/RightBoxDashboard'
 

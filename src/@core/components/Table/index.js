@@ -61,7 +61,7 @@ const Table = () => {
 
   return (
     <Box sx={{ backgroundColor: 'white', borderRadius: '16px', maxHeight: '100%' }} spacing={6}>
-      <TableHeader pageTitle={'Top Booking  Cities '} />
+      <TableHeader pageTitle={'Recent Check Out'} />
       <DataGrid autoHeight rowHeight={60} rows={data || []} columns={columns} hideFooterPagination sx={{ px: '20px', }} />
     </Box>
   )

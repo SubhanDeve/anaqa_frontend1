@@ -2,8 +2,6 @@
 
 import { Typography } from '@mui/material'
 import Box from '@mui/material/Box'
-import CustomDateMenu from 'src/@core/components/CustomDateMenu'
-import Search from 'src/@core/components/search'
 
 const TableHeader = props => {
   // ** Props
@@ -22,8 +20,9 @@ const TableHeader = props => {
       }}
     >
       <Typography sx={{ fontSize: '18px', fontWeight: '600', color: '#333' }}>{pageTitle}</Typography>
-      <CustomDateMenu />
-      <Search />
+      <Typography sx={{ fontSize: '14px', fontWeight: '600', color: '#115740', textDecoration: 'underline', cursor: 'pointer' }}>
+        View all
+      </Typography>
     </Box>
   )
 }

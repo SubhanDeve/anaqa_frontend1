@@ -65,6 +65,7 @@ const DonutChart = () => {
         flexDirection: 'column',
         justifyContent: 'space-between',
         alignItems: 'center',
+        gap: '19px'
       }}
     >
       <Box sx={{ width: '100%', textAlign: 'center' }}>

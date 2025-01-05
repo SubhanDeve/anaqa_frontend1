@@ -165,25 +165,14 @@ const LoginPage = () => {
       <Grid
         sx={{
           background: theme => theme.palette.background.paper,
-          borderRadius: '16px',
+          borderRadius: '31px',
           mx: { md: 30 },
           my: 'auto',
           height: '80vh'
         }}
         container
       >
-        {!hidden && (
-          <Grid item sm={12} md={6}>
-            <img
-              src='/images/login-bg.png'
-              style={{
-                height: '80vh',
-                width: '100%',
-                objectFit: 'fill'
-              }}
-            />
-          </Grid>
-        )}
+
 
         <Grid
           sx={{
@@ -210,7 +199,7 @@ const LoginPage = () => {
                 zIndex: 10
               }}
             >
-              <FadeLoader color='#36d7b7' />
+              <FadeLoader color='#CD929D' />
             </div>
           )}
           <Box
@@ -219,9 +208,10 @@ const LoginPage = () => {
               filter: loading ? 'blur(5px)' : 'none'
             }}
           >
-            <Box sx={{ mb: 6 }}>
-              <TypographyStyled variant='h5'>{`Welcome to ${themeConfig.templateName}! 👋🏻`}</TypographyStyled>
-              <Typography variant='body2'>{'Please sign-in to your account and start the adventure'}</Typography>
+            <Box sx={{ mb: 6, display: 'flex', flexDirection: 'column', textAlign: 'center', }}>
+              <img src='/anaqa.svg' width={'100%'} style={{ marginBottom: '40px' }} />
+              <TypographyStyled variant='h5' sx={{ color: '#212529' }}>{`Hi, Welcome to ${themeConfig.templateName}! 👋🏻`}</TypographyStyled>
+              <Typography variant='body2' sx={{ color: '#6C757D', fontWeight: '600', }}>{'Login with your email address'}</Typography>
             </Box>
 
             <form noValidate autoComplete='off' onSubmit={handleSubmit(onSubmit)}>
@@ -310,7 +300,22 @@ const LoginPage = () => {
             </form>
           </Box>
         </Grid>
+        {!hidden && (
+          <Grid item sm={12} md={6}>
+            <Box sx={{ backgroundImage: "url('/images/login-bg.png')", height: '100%', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover', borderStartEndRadius: '31px', borderEndEndRadius: '31px' }}>
+
+              {/* <img
+                src='/images/login-bg.png'
+                style={{
+                  width: '100%',
+                  objectFit: 'fill'
+                }}
+              /> */}
+            </Box>
+          </Grid>
+        )}
       </Grid>
+
     </Box>
 
   )

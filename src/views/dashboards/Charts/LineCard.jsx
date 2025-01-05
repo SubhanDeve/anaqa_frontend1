@@ -1,7 +1,10 @@
-import { Card } from '@mui/material'
-import { ca } from 'date-fns/locale'
+import { Box, Card, Typography } from '@mui/material'
+import { fontWeight } from '@mui/system'
 import React, { useState } from 'react'
+import CustomSelectMenu from 'src/@core/components/CustomSelectMenu'
+import Heading from 'src/@core/components/Heading'
 import ReactApexChart from 'src/@core/components/react-apexcharts'
+import LineChartHeader from 'src/views/components/dashboard/Line Chart Header/LineChartHeader'
 
 const LineCard = () => {
   const [selectedItem, setSelectedItem] = useState('')
@@ -84,10 +87,13 @@ const LineCard = () => {
       }
     },
     yaxis: {
-      categories: ['0', '100', '200', '300', '400', '500'],
       labels: {
+        value: ['0', '100', '200', '300', '400', '500'],
         style: {
           colors: '#B0B0B0'
+        },
+        formatter: function (value) {
+          return `$${value}` // Prefix each value with a dollar sign
         }
       }
     }
@@ -96,15 +102,18 @@ const LineCard = () => {
   const series = [
     {
       name: 'Bookings',
-      data: [20, 40, 30, 50, 80, 40, 30]
+      data: [150, 300, 200, 480, 300, 270]
     }
   ]
 
   return (
     <Card elevation={0} style={{ padding: '20px', borderRadius: '10px' }}>
-      <div id='chart'>
-        <ReactApexChart options={options} series={series} type='area' width={'100%'} height={'360px'} />
-      </div>
+      <Box>
+        <LineChartHeader />
+      </Box>
+      <Box>
+        <ReactApexChart options={options} series={series} type='area' width={'100%'} height={'300px'} />
+      </Box>
     </Card>
   )
 }

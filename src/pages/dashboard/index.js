@@ -4,7 +4,6 @@ import { Box, Grid, Typography } from '@mui/material'
 import { useAuth } from 'src/hooks/useAuth'
 
 import LineChart2 from 'src/views/dashboards/Charts/LineCard'
-import RightBoxDashboard from 'src/views/dashboards/RightBoxDashboard'
 
 import { useLanguage } from 'src/context/LanguageContext'
 import { getTranslations } from 'src/context/getTranslations'
@@ -16,18 +15,32 @@ import BookingChart from 'src/views/dashboards/Charts/BookingChart'
 import ServicesChart from 'src/views/dashboards/Charts/ServicesChart'
 import SaloonSuggestions from 'src/views/dashboards/Charts/SaloonSuggestions'
 import RequestCard from 'src/views/dashboards/Charts/RequestCard'
+import CustomPageHeading from 'src/@core/components/CustomPageHeading'
+import CustomSelectMenu from 'src/@core/components/CustomSelectMenu'
 
 const Dashboard = () => {
   const { language } = useLanguage()
+
   const {
     pages: { dashboard }
   } = getTranslations(language)
+
   const auth = useAuth()
 
+  const menuOptions = [{
+    title: 'Hello'
+  }]
+
   return (
-    <Box sx={{ display: 'grid', alignItems: 'center' }}>
-      <Box >
-        <Typography sx={{ fontSize: '26px', fontWeight: '600', lineHeight: '40px', mb: 3 }}>DashBoard</Typography>
+    <Box sx={{ display: 'grid', alignItems: 'center', gap: '20px' }}>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }} >
+        <CustomPageHeading text="Dashboard" />
+
+        <Box sx={{ display: { xs: 'grid', lg: 'flex' }, gap: '5px' }}>
+          <CustomSelectMenu menuOptions={menuOptions} bgcolor={'#FFFFFF'} title={'Salon'} />
+          <CustomSelectMenu menuOptions={menuOptions} bgcolor={'#FFFFFF'} title={'City'} />
+          <CustomSelectMenu menuOptions={menuOptions} bgcolor={'#FFFFFF'} title={'Date & Time'} />
+        </Box>
       </Box>
       <Grid container spacing={6}>
         <Grid item xs={12} md={8}>

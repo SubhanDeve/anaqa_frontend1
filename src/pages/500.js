@@ -46,7 +46,7 @@ const Error500 = () => {
           </Typography>
           <Typography variant='body2'>Oops, something went wrong!</Typography>
         </BoxWrapper>
-        <Img alt='error-illustration' src='/images/pages/500.png' />
+        <Img alt='error-logo' src='/anaqa.svg' width={'100%'} />
         <Button href='/' component={Link} variant='contained' sx={{ px: 5.5 }}>
           Back to Home
         </Button>

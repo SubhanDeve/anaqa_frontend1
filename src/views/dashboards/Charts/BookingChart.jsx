@@ -2,6 +2,7 @@ import { DatePicker } from '@mui/lab'
 import { Box, MenuItem, Select, Typography, ProgressBar, LinearProgress, Card } from '@mui/material'
 import React from 'react'
 import CustomProgressBar from 'src/@core/components/CustomProgressBar'
+import CustomSelectMenu from 'src/@core/components/CustomSelectMenu'
 
 const BookingChart = () => {
   const progressData = [
@@ -27,6 +28,18 @@ const BookingChart = () => {
     }
   ]
 
+  const menuOptions = [
+    {
+      title: 'Monday'
+    },
+    {
+      title: 'Tuesday'
+    },
+    {
+      title: 'Wednesday'
+    }
+  ]
+
   return (
     <Card
       elevation={0}
@@ -44,20 +57,14 @@ const BookingChart = () => {
           <Typography sx={{ fontSize: '18px', fontWeight: '600', lineHeight: '24px' }}>Booking Analytics</Typography>
         </Box>
         <Box>
-          <Select size='small' defaultValue='Date & Time' label='Date & Time' variant='filled'>
-            <MenuItem>Today</MenuItem>
-            <MenuItem>Yesterday</MenuItem>
-            <MenuItem>Last 7 days</MenuItem>
-            <MenuItem>Last 30 days</MenuItem>
-            <MenuItem>Last 90 days</MenuItem>
-          </Select>
+          <CustomSelectMenu title={'Date & Time'} bgcolor={'#F8F8F9'} menuOptions={menuOptions} />
         </Box>
       </Box>
       <Box
         sx={{
           display: 'flex',
           flexDirection: 'column',
-          gap: '28px',
+          gap: '28px'
         }}
       >
         {progressData.map((item, index) => (

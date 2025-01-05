@@ -44,7 +44,7 @@ const CustomSelectMenu = ({ menuOptions, bgcolor, title }) => {
       </Box>
       <Menu id='stage-menu' anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={() => handleClose(null)}>
         {menuOptions.map((option, index) => (
-          <MenuItem key={index} sx={{ width: '113px' }} onClick={() => handleClose(option)}>
+          <MenuItem key={index} sx={{ width: '113px', ':active': { color: '#FFFFFF' }, ':hover': { backgroundColor: '#CD929D', color: '#FFFFFF' } }} onClick={() => handleClose(option)}>
             {option.title}
           </MenuItem>
         ))}

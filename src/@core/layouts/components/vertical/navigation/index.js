@@ -17,7 +17,13 @@ import VerticalNavHeader from './VerticalNavHeader'
 
 // ** Util Import
 import { hexToRGBA } from 'src/@core/utils/hex-to-rgba'
-import { Typography } from '@mui/material'
+import { Button, ListItem, ListItemButton, ListItemIcon, ListItemText, Typography } from '@mui/material'
+import Candle from 'src/icons/candle'
+import Logout from 'src/icons/logout'
+import { useAuth } from 'src/hooks/useAuth'
+import { useRouter } from 'next/router'
+
+
 
 const StyledBoxForShadow = styled(Box)(({ theme }) => ({
   top: 60,
@@ -105,6 +111,17 @@ const Navigation = props => {
   }
   const ScrollWrapper = hidden ? Box : PerfectScrollbar
 
+  const { logout } = useAuth()
+  const router = useRouter()
+
+  const handleLogout = () => {
+    logout()
+  }
+
+  const handleClick = () => {
+    router.push('/settings')
+  }
+
   return (
     <Drawer {...props} navHover={navHover} setNavHover={setNavHover}>
       <VerticalNavHeader {...props} navHover={navHover} />
@@ -112,42 +129,77 @@ const Navigation = props => {
       {(beforeVerticalNavMenuContentPosition === 'static' || !beforeNavMenuContent) && (
         <StyledBoxForShadow ref={shadowRef} sx={{ background: shadowBgColor() }} />
       )}
-      <Box sx={{ position: 'relative', overflow: 'hidden' }}>
-        <Box sx={{ display: 'grid', px: '18px', gap: '15px' }}>
-          <hr></hr>
-          <Typography sx={{ color: '#80807D', fontSize: '12px', fontWeight: '700', lineHeight: '19.2px' }}>MENU</Typography>
+      <Box sx={{ position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100vh' }}>
+        <Box>
+
+
+          <Box sx={{ display: 'grid', px: '18px', gap: '15px' }}>
+            <hr></hr>
+            <Typography sx={{ color: '#80807D', fontSize: '12px', fontWeight: '700', lineHeight: '19.2px' }}>MENU</Typography>
+          </Box>
+          <ScrollWrapper
+            {...(hidden
+              ? {
+                onScroll: container => scrollMenu(container),
+                sx: { height: '100%', overflowY: 'auto', overflowX: 'hidden' }
+              }
+              : {
+                options: { wheelPropagation: false },
+                onScrollY: container => scrollMenu(container),
+                containerRef: ref => handleInfiniteScroll(ref)
+              })}
+          >
+            {beforeNavMenuContent && beforeVerticalNavMenuContentPosition === 'static'
+              ? beforeNavMenuContent(props)
+              : null}
+            {userNavMenuContent ? (
+              userNavMenuContent(props)
+            ) : (
+              <List className='nav-items' sx={{ pt: 0, '& > :first-child': { mt: '20px' } }}>
+                <VerticalNavItems
+                  navHover={navHover}
+                  groupActive={groupActive}
+                  setGroupActive={setGroupActive}
+                  currentActiveGroup={currentActiveGroup}
+                  setCurrentActiveGroup={setCurrentActiveGroup}
+                  {...props}
+                />
+              </List>
+            )}
+            {afterNavMenuContent && afterVerticalNavMenuContentPosition === 'static' ? afterNavMenuContent(props) : null}
+          </ScrollWrapper>
         </Box>
-        <ScrollWrapper
-          {...(hidden
-            ? {
-              onScroll: container => scrollMenu(container),
-              sx: { height: '100%', overflowY: 'auto', overflowX: 'hidden' }
-            }
-            : {
-              options: { wheelPropagation: false },
-              onScrollY: container => scrollMenu(container),
-              containerRef: ref => handleInfiniteScroll(ref)
-            })}
-        >
-          {beforeNavMenuContent && beforeVerticalNavMenuContentPosition === 'static'
-            ? beforeNavMenuContent(props)
-            : null}
-          {userNavMenuContent ? (
-            userNavMenuContent(props)
-          ) : (
-            <List className='nav-items' sx={{ pt: 0, '& > :first-child': { mt: '20px' } }}>
-              <VerticalNavItems
-                navHover={navHover}
-                groupActive={groupActive}
-                setGroupActive={setGroupActive}
-                currentActiveGroup={currentActiveGroup}
-                setCurrentActiveGroup={setCurrentActiveGroup}
-                {...props}
-              />
-            </List>
-          )}
-          {afterNavMenuContent && afterVerticalNavMenuContentPosition === 'static' ? afterNavMenuContent(props) : null}
-        </ScrollWrapper>
+        <Box sx={{ display: 'flex', flexDirection: 'column', margin: 0, alignItems: 'center', gap: '10px' }}>
+          <hr style={{ width: '90%' }}></hr>
+          <ListItem>
+            <ListItemButton sx={{
+              '&.Mui-focusVisible': {
+                backgroundColor: '#FAF5F6',
+                color: '#CD929D'
+              }
+            }}
+              onClick={handleClick}
+            >
+              <ListItemIcon>
+                <Candle />
+              </ListItemIcon>
+              <ListItemText>
+                Settings
+              </ListItemText>
+            </ListItemButton>
+          </ListItem>
+          <hr style={{ width: '90%' }}></hr>
+          <ListItem>
+            <ListItemButton onClick={handleLogout}>
+              <ListItemIcon>
+                <Logout />
+              </ListItemIcon>
+              <ListItemText>
+                Logout
+              </ListItemText>
+            </ListItemButton>
+          </ListItem>
+        </Box>
       </Box>
       {afterNavMenuContent && afterVerticalNavMenuContentPosition === 'fixed' ? afterNavMenuContent(props) : null}
     </Drawer>

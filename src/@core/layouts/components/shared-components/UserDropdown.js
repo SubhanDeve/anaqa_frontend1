@@ -55,6 +55,11 @@ const UserDropdown = props => {
     setAnchorEl(null)
   }
 
+  const handleProfile = () => {
+    router.push('/profile')
+    setAnchorEl(null)
+  }
+
   const styles = {
     py: 2,
     px: 4,
@@ -116,7 +121,7 @@ const UserDropdown = props => {
                 horizontal: 'right'
               }}
             >
-              <Avatar alt={auth?.user?.name} src='/images/avatars/profile.png' sx={{ width: '2.5rem', height: '2.5rem' }} variant='rounded'/>
+              <Avatar alt={auth?.user?.name} src='/images/avatars/profile.png' sx={{ width: '2.5rem', height: '2.5rem' }} variant='rounded' />
             </Badge>
             <Box sx={{ display: 'flex', ml: 3, alignItems: 'flex-start', flexDirection: 'column' }}>
               <Typography sx={{ fontWeight: 600 }}>{auth?.user?.name}</Typography>
@@ -170,6 +175,13 @@ const UserDropdown = props => {
           </Box>
         </MenuItem> */}
         {/* <Divider /> */}
+        <MenuItem
+          onClick={handleProfile}
+          sx={{ py: 2, '& svg': { mr: 2, fontSize: '1.375rem', color: 'text.primary' } }}
+        >
+          <Icon icon='mdi:user' />
+          Profile
+        </MenuItem>
         <MenuItem
           onClick={handleLogout}
           sx={{ py: 2, '& svg': { mr: 2, fontSize: '1.375rem', color: 'text.primary' } }}

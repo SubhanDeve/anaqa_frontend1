@@ -8,6 +8,7 @@ import LanguageDropdown from 'src/@core/layouts/components/shared-components/Lan
 import UserDropdown from 'src/@core/layouts/components/shared-components/UserDropdown'
 import NotificationButton from '../NotificationButton'
 import { Typography } from '@mui/material'
+import Search from 'src/@core/components/search'
 
 const AppBarContent = props => {
   // ** Props
@@ -24,11 +25,11 @@ const AppBarContent = props => {
         padding: 5,
       }}
     >
-      <Box sx={{ width: '60%' }}>
-        <Box sx={{ display: 'flex', backgroundColor: '#F8F8F9', borderRadius: '8px', px: '32px', py: '12px' }}>
-          <img src='/icons/Search.svg' />
-          <Typography sx={{ color: '#BBC0C3' }}>Search</Typography>
-        </Box>
+      <Box sx={{ display: { lg: 'none', md: 'block' } }}>
+        <img src='/anaqa.svg' />
+      </Box>
+      <Box sx={{ width: '60%', display: { lg: 'block', md: 'none', sm: 'none', xs: 'none' } }}>
+        <Search />
       </Box>
       <Box className='actions-right' sx={{ display: 'flex', alignContent: 'center', gap: '12px' }}>
         <LanguageDropdown settings={settings} saveSettings={saveSettings} />

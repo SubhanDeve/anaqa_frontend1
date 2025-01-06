@@ -19,7 +19,7 @@ const LanguageDropdown = ({ settings, saveSettings }) => {
     <OptionsMenu
       icon={
         <>
-          <img src={`/icons/english.svg`} alt="Eng" width={'28px'} />
+          <img src={`/icons/english.svg`} alt="" width={'28px'} />
           <Box style={marginStyle} className='uppercase'>
             Eng
           </Box>

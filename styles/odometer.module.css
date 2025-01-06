@@ -1,0 +1,33 @@
+.odometerWrap {
+  font-size: 2rem;
+  font-family: monospace;
+  text-align: center;
+  overflow: hidden;
+  height: 50px; /* Each number has a height of 50px */
+  width: 50px;
+  line-height: 50px;
+  position: relative;
+}
+
+.odometer {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.odometer li {
+  height: 50px;
+  text-align: center;
+}
+
+.controls {
+  margin-top: 20px;
+  font-size: 1rem;
+}
+
+.controls input {
+  margin-left: 10px;
+  font-size: 1rem;
+  width: 50px;
+  text-align: center;
+}

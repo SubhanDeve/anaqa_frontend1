@@ -4,6 +4,7 @@ import { Box, Card, Typography } from '@mui/material'
 // Internal Imports
 import InfoIcon from '@mui/icons-material/Info'
 import MovingIcon from '@mui/icons-material/Moving'
+import Odometer from 'src/@core/components/Odometer/Odometer'
 
 const DashboardCard = ({ name, icons, tradeIcon, total, countPercent, tradebgColor, tradetextColor }) => {
 
@@ -35,10 +36,7 @@ const DashboardCard = ({ name, icons, tradeIcon, total, countPercent, tradebgCol
           </Typography>
         </Box>
         <Box>
-          <Typography sx={{ fontSize: '28px', fontWeight: '700', lineHeight: '36px', color: '#1C1C1C' }}>
-            {total}
-          </Typography>
-
+          <Odometer number={total} />
         </Box>
       </Card>
     </>

@@ -1,70 +1,127 @@
 // External Imports
-import { Box } from "@mui/system";
-import { DataGrid } from '@mui/x-data-grid'
+import { DataGrid } from '@mui/x-data-grid';
+import { Box, Button, TextField } from '@mui/material';
 
 // Internal Imports
-import TableHeader from "./TableHeader";
-import Columns from "./column";
+import TableHeader from './TableHeader';
+import Columns from './column';
 
+const Table = ({ data }) => {
+  const columns = Columns();
 
-const data = [
-  {
-    id: 1,
-    name: 'Haylie',
-    phone: '3745',
-    url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTblZyrJ4F1nmvqJkXd1wEwjnm8Z0X-wnUAeOujfw_mxA&s',
-    checkoutby: 'Jhon Smith',
-    category: 'Water pass',
-    time: '12:34:25'
-  },
-  {
-    id: 2,
-    name: 'James',
-    phone: '6543',
-    url: 'https://www.shutterstock.com/image-photo/portrait-confident-cool-entrepreneur-guy-260nw-1543797515.jpg',
-    checkoutby: 'Jhon Smith',
-    category: 'Water pass',
-    time: '12:34:25'
-  },
-  {
-    id: 3,
-    name: 'Johns',
-    phone: '535',
-    url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkKOhTC7uF8wsYRfNsZme5g22peKJuuoDbNsYMW2PakC1t4B4X_n3fWHHPka3sWG1XoFQ&usqp=CAU',
-    checkoutby: 'Jhon Smith',
-    category: 'Water pass',
-    time: '12:34:25'
-  },
-  {
-    id: 4,
-    name: 'Doe',
-    phone: '787',
-    url: 'https://www.shutterstock.com/image-photo/happy-young-man-portrait-handsome-260nw-262734242.jpg',
-    checkoutby: 'Jhon Smith',
-    category: 'Water pass',
-    time: '12:34:25'
-  },
-  {
-    id: 5,
-    name: 'Robert',
-    phone: '896',
-    url: 'https://thumbs.dreamstime.com/b/photographer-holding-camera-close-up-back-view-selective-focus-colored-vertical-stripes-background-71664253.jpg',
-    checkoutby: 'Jhon Smith',
-    category: 'Water pass',
-    time: '12:34:25'
-  }
-]
+  // Custom Pagination Component
+  const CustomPagination = ({ page, pageCount, onPageChange }) => {
+    return (
+      <Box display="flex" alignItems="center" justifyContent="end" sx={{ padding: '8px 0px' }}>
+        {/* Previous Button */}
+        <Button
+          variant="text"
+          disabled={page === 1}
+          onClick={() => onPageChange(page - 2)} // Zero-based indexing
+          sx={{ color: '#6C757D', textTransform: 'none' }}
+        >
+          <img src='/icons/arrow-lt.svg' />
+          Previous
+        </Button>
 
-const Table = () => {
+        {/* Page Input */}
+        <TextField
+          value={page.toString().padStart(2, '0')}
+          onChange={(e) => {
+            const newPage = parseInt(e.target.value, 10);
+            if (!isNaN(newPage) && newPage >= 1 && newPage <= pageCount) {
+              onPageChange(newPage - 1); // Convert to zero-based indexing
+            }
+          }}
+          inputProps={{
+            style: { textAlign: 'center', width: '100%' },
+          }}
+          size="small"
+          sx={{ backgroundColor: '#FAFAFA', width: '16%' }}
+        />
 
-  const columns = Columns()
+        {/* Next Button */}
+        <Button
+          variant="text"
+          disabled={page === pageCount}
+          onClick={() => onPageChange(page)} // Zero-based indexing
+          sx={{ color: '#6C757D', textTransform: 'none' }}
+        >
+          Next
+          <img src='/icons/arrow-rt.svg' />
+        </Button>
+      </Box>
+    );
+  };
 
   return (
-    <Box sx={{ backgroundColor: 'white', borderRadius: '16px', maxHeight: '100%' }} spacing={6}>
-      <TableHeader pageTitle={'Recent Check Out'} />
-      <DataGrid autoHeight rowHeight={60} rows={data || []} columns={columns} hideFooterPagination sx={{ px: '20px', }} />
-    </Box>
-  )
-}
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '8px',
+        backgroundColor: 'white',
+        borderRadius: '16px',
+        height: '100%',
+      }}
+    >
+      {/* Table Header */}
+      <TableHeader />
 
-export default Table
+      {/* DataGrid */}
+      <DataGrid
+        autoHeight
+        rowHeight={60}
+        rows={data || []}
+        columns={columns}
+        checkboxSelection
+        pageSize={10}
+        rowsPerPageOptions={[10]}
+        pagination
+        paginationMode="client" // Use "client" or "server" as per your setup
+        sx={{
+          '.MuiDataGrid-columnSeparator': { display: 'none' },
+          '.MuiDataGrid-menuIcon': { display: 'none' },
+          '.MuiDataGrid-columnHeaders': {
+            backgroundColor: '#F8F8F9',
+            borderRadius: '6px',
+          },
+          '.MuiDataGrid-columnHeaderTitle': {
+            fontSize: '16px',
+            fontWeight: '600',
+            lineHeight: '20px',
+            color: '#6C757D',
+            textTransform: 'none'
+          },
+          '.MuiDataGrid-cellContent': {
+            fontSize: '14px',
+            fontWeight: '500',
+            lineHeight: '20px',
+            color: '#6C757D',
+          },
+          '.MuiDataGrid-columnHeadersInner': {
+            borderBottom: '1px solid #F0F0F0',
+          },
+          '.MuiDataGrid-row': {
+            borderBottom: '1px solid #F0F0F0',
+            fontSize: '14px',
+            fontWeight: '500',
+            lineHeight: '24px',
+            color: '#6C757D',
+          },
+        }}
+        components={{
+          Pagination: (props) => (
+            <CustomPagination
+              page={props.page + 1} // Convert zero-based to one-based for display
+              pageCount={props.rowCount / props.pageSize} // Total page count
+              onPageChange={(newPage) => props.onPageChange(newPage)} // Pass onPageChange
+            />
+          ),
+        }}
+      />
+    </Box>
+  );
+};
+
+export default Table;

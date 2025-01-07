@@ -1,25 +1,125 @@
+import React from 'react'
 import { Box, Button, Card } from '@mui/material'
-import React, { useEffect, useState } from 'react'
 import CustomPageHeading from 'src/@core/components/CustomPageHeading'
-import AnimatedNumber from 'src/@core/components/Number Animated'
-
+import Table from 'src/@core/components/Table'
 const Salons = () => {
-  const [targetValue, setTargetValue] = useState(0)
-
-  // Simulate an API call
-  useEffect(() => {
-    const fetchTargetValue = async () => {
-      // Replace this with your actual API call
-      const response = await new Promise(resolve => setTimeout(() => resolve({ target: 7 }), 1000))
-      setTargetValue(response.target) // Set the target value from the API response
-    }
-
-    fetchTargetValue()
-  }, [])
-
-  const menuOptions = [
+  const data = [
     {
-      title: 'Stage 1'
+      id: 1,
+      image: 'Image',
+      salonName: 'Abs Salon',
+      regdate: '09-12-2024',
+      phoneNo: '+966-1234567',
+      email: 'alex001@gmail.com',
+      owner: 'Alex J Morison',
+      status: 'Pending',
+      city: 'Jeddah',
+      category: 'Salon',
+      action: '...'
+    },
+    {
+      id: 2,
+      image: 'Image',
+      salonName: 'Abs Salon',
+      regdate: '09-12-2024',
+      phoneNo: '+966-1234567',
+      email: 'alex001@gmail.com',
+      owner: 'Alex J Morison',
+      status: 'Active',
+      city: 'Jeddah',
+      category: 'Salon',
+      action: '...'
+    },
+    {
+      id: 3,
+      image: 'Image',
+      salonName: 'Abs Salon',
+      regdate: '09-12-2024',
+      phoneNo: '+966-1234567',
+      email: 'alex001@gmail.com',
+      owner: 'Alex J Morison',
+      status: 'Deleted',
+      city: 'Jeddah',
+      category: 'Salon',
+      action: '...'
+    },
+    {
+      id: 4,
+      image: 'Image',
+      salonName: 'Abs Salon',
+      regdate: '09-12-2024',
+      phoneNo: '+966-1234567',
+      email: 'alex001@gmail.com',
+      owner: 'Alex J Morison',
+      status: 'Blocked',
+      city: 'Jeddah',
+      category: 'Salon',
+      action: '...'
+    },
+    {
+      id: 5,
+      image: 'Image',
+      salonName: 'Abs Salon',
+      regdate: '09-12-2024',
+      phoneNo: '+966-1234567',
+      email: 'alex001@gmail.com',
+      owner: 'Alex J Morison',
+      status: 'Active',
+      city: 'Jeddah',
+      category: 'Salon',
+      action: '...'
+    },
+    {
+      id: 6,
+      image: 'Image',
+      salonName: 'Abs Salon',
+      regdate: '09-12-2024',
+      phoneNo: '+966-1234567',
+      email: 'alex001@gmail.com',
+      owner: 'Alex J Morison',
+      status: 'Deleted',
+      city: 'Jeddah',
+      category: 'Salon',
+      action: '...'
+    },
+    {
+      id: 7,
+      image: 'Image',
+      salonName: 'Abs Salon',
+      regdate: '09-12-2024',
+      phoneNo: '+966-1234567',
+      email: 'alex001@gmail.com',
+      owner: 'Alex J Morison',
+      status: 'InActive',
+      city: 'Jeddah',
+      category: 'Salon',
+      action: '...'
+    },
+    {
+      id: 8,
+      image: 'Image',
+      salonName: 'Abs Salon',
+      regdate: '09-12-2024',
+      phoneNo: '+966-1234567',
+      email: 'alex001@gmail.com',
+      owner: 'Alex J Morison',
+      status: 'Active',
+      city: 'Jeddah',
+      category: 'Salon',
+      action: '...'
+    },
+    {
+      id: 9,
+      image: 'Image',
+      salonName: 'Abs Salon',
+      regdate: '09-12-2024',
+      phoneNo: '+966-1234567',
+      email: 'alex001@gmail.com',
+      owner: 'Alex J Morison',
+      status: 'Pending',
+      city: 'Jeddah',
+      category: 'Salon',
+      action: '...'
     }
   ]
 
@@ -59,10 +159,8 @@ const Salons = () => {
         </Box>
       </Box>
       <Box>
-        <Card elevation={0} sx={{ height: '80vh' }}>
-          <Box>
-            <AnimatedNumber targetValue={targetValue} />
-          </Box>
+        <Card elevation={0} sx={{ height: 'fit-content', padding: '14px 20px' }}>
+          <Table data={data} />
         </Card>
       </Box>
     </Box>

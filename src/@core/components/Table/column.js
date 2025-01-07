@@ -22,16 +22,8 @@ const Columns = () => {
     {
       flex: 0.05,
       minWidth: 100,
-      field: 'id',
-      headerName: 'Student ID',
-      align: 'center',
-      headerAlign: 'center'
-    },
-    {
-      flex: 0.05,
-      minWidth: 100,
       field: 'url',
-      headerName: 'Profile',
+      headerName: 'Image',
       renderCell: ({ row }) => {
         return (
           <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column', height: 'fit-content' }}>
@@ -43,24 +35,99 @@ const Columns = () => {
     {
       flex: 0.05,
       minWidth: 100,
-      field: 'name',
-      headerName: 'Name',
+      field: 'salonName',
+      headerName: 'Salon Name',
       align: 'center',
       headerAlign: 'center'
     },
     {
       flex: 0.05,
       minWidth: 100,
-      field: 'phone',
-      headerName: 'Grade ',
+      field: 'phoneNo',
+      headerName: 'Phone',
       align: 'center',
       headerAlign: 'center'
     },
     {
       flex: 0.05,
       minWidth: 100,
-      field: 'checkoutby',
-      headerName: 'Check out by ',
+      field: 'email',
+      headerName: 'Email',
+      align: 'center',
+      headerAlign: 'center'
+    },
+    {
+      flex: 0.05,
+      minWidth: 100,
+      field: 'owner',
+      headerName: 'Owner',
+      align: 'center',
+      headerAlign: 'center'
+    },
+    {
+      flex: 0.05,
+      minWidth: 100,
+      field: 'status',
+      headerName: 'Status',
+      align: 'center',
+      headerAlign: 'center',
+      renderCell: ({ row }) => {
+        // Status styles map (dynamically extendable)
+        const statusStyles = {
+          Pending: {
+            backgroundColor: '#F8F8F9',
+            color: '#6C757D',
+          },
+          Active: {
+            backgroundColor: '#1BA40F14',
+            color: '#1BA40F',
+          },
+          Deleted: {
+            backgroundColor: '#D83A3C14',
+            color: '#D83A3C',
+          },
+          Blocked: {
+            backgroundColor: '#EEEEEE',
+            color: '#6C757D',
+          },
+          InActive: {
+            backgroundColor: '#F59E0B0D',
+            color: '#F59E0B',
+          },
+        };
+
+        // Fallback to default styles if status not found in map
+        const currentStyles = statusStyles[row.status] || {
+          backgroundColor: '#E0E0E0', // Default background
+          color: '#000000', // Default text color
+        };
+
+        return (
+          <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
+            <Typography
+              sx={{
+                padding: '6px 16px',
+                backgroundColor: currentStyles.backgroundColor,
+                height: 'auto',
+                width: 'auto',
+                borderRadius: '8px',
+                fontSize: '14px',
+                color: currentStyles.color,
+                fontWeight: '500',
+              }}
+            >
+              {row.status}
+            </Typography>
+          </Box>
+        );
+      },
+    },
+
+    {
+      flex: 0.05,
+      minWidth: 100,
+      field: 'city',
+      headerName: 'City',
       align: 'center',
       headerAlign: 'center'
     },
@@ -75,33 +142,21 @@ const Columns = () => {
     {
       flex: 0.05,
       minWidth: 100,
-      field: 'time',
-      headerName: 'Timer',
+      field: 'actions',
+      headerName: 'Actions',
       align: 'center',
       headerAlign: 'center',
-      renderCell: ({ row }) => {
-        const { time } = row
+      renderCell: () => {
 
         return (
           <Box sx={{ display: 'flex', alignItems: 'flex-start' }} >
-            <Typography
-              sx={{
-                padding: '10px',
-                backgroundColor: '#CFDDD9',
-                height: 'auto',
-                width: 'auto',
-                borderRadius: '6px',
-                fontSize: '14px',
-                color: '#333',
-                fontWeight: '500'
-              }}
-            >
-              {time}
-            </Typography>
+            <Box>
+              <img src='/icons/actionicon.svg' alt='...' width={'30px'} />
+            </Box>
           </Box>
         )
       }
-    }
+    },
   ]
 
   return column

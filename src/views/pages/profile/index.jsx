@@ -1,4 +1,4 @@
-import { Avatar, Badge, Box, Button, Card } from '@mui/material'
+import { Avatar, Badge, Box, Card } from '@mui/material'
 import React from 'react'
 import CustomContainButton from 'src/@core/components/custom-button/CustomContainButton'
 import CustomSecondaryButton from 'src/@core/components/custom-button/CustomSecondaryButton'
@@ -12,7 +12,7 @@ const ProfilePage = () => {
       <Box>
         <CustomPageHeading text={'Admin Profile'} />
       </Box>
-      <Card elevation={0} sx={{ height: '82vh' }}>
+      <Card elevation={0} sx={{ height: { xs: '100%', md: '82vh' } }}>
         <Box
           sx={{
             width: '100%',
@@ -21,7 +21,15 @@ const ProfilePage = () => {
             borderRadius: '10px'
           }}
         ></Box>
-        <Box sx={{ display: 'flex', padding: '20px 30px', marginTop: '-4%', gap: '20px' }}>
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: { md: 'row', xs: 'column' },
+            padding: '20px 30px',
+            marginTop: '-4%',
+            gap: '20px'
+          }}
+        >
           <Box sx={{ border: '1px solid #F8F8F9', borderRadius: '10px', height: 'fit-content' }}>
             <Box
               sx={{
@@ -67,7 +75,7 @@ const ProfilePage = () => {
           </Box>
           <Box
             sx={{
-              width: '69vw',
+              width: { xs: '100%', md: '69vw' },
               backgroundColor: '#fff',
               border: '1px solid #F8F8F9',
               borderRadius: '10px',

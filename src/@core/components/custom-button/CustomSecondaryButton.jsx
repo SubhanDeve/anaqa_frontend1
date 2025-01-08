@@ -6,11 +6,11 @@ const CustomSecondaryButton = ({ text, width }) => {
     <Button
       variant='contained'
       sx={{
-        backgroundColor: '#FAF5F6',
+        backgroundColor: '#F5EAEC',
         color: '#CD929D',
         boxShadow: 'none',
         textTransform: 'none',
-        ':hover': { boxShadow: 'none' },
+        ':hover': { boxShadow: 'none', backgroundColor: '#ECD5D9' },
         width: width
       }}
     >

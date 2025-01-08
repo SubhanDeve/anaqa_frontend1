@@ -12,7 +12,7 @@ import { Box, Button, Typography } from '@mui/material'
 import { FadeLoader } from 'react-spinners'
 
 import DetailModal from './detailModal'
-import { remove } from 'src/services/school.service'
+import { remove } from 'src/services/salon.service'
 import toast from 'react-hot-toast'
 import Lottie from 'lottie-react'
 import DeleteGifIcon from 'src/gifs/delete.json'

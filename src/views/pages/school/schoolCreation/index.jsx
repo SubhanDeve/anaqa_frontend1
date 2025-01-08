@@ -11,7 +11,7 @@ import IconButton from '@mui/material/IconButton'
 import { Dialog, DialogTitle } from '@mui/material'
 import DialogContent from '@mui/material/DialogContent'
 import { FadeLoader } from 'react-spinners'
-import { create } from 'src/services/school.service'
+import { create } from 'src/services/salon.service'
 
 // Internal Imports
 import AddCampus from './addCampus'

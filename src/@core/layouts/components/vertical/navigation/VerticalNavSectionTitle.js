@@ -47,7 +47,7 @@ const VerticalNavSectionTitle = props => {
       }
     } else {
       return {
-        color: 'text.disabled'
+        color: 'white'
       }
     }
   }

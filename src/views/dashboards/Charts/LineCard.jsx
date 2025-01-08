@@ -1,8 +1,5 @@
-import { Box, Card, Typography } from '@mui/material'
-import { fontWeight } from '@mui/system'
+import { Box, Card } from '@mui/material'
 import React, { useState } from 'react'
-import CustomSelectMenu from 'src/@core/components/CustomSelectMenu'
-import Heading from 'src/@core/components/Heading'
 import ReactApexChart from 'src/@core/components/react-apexcharts'
 import LineChartHeader from 'src/views/components/dashboard/Line Chart Header/LineChartHeader'
 

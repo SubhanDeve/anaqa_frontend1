@@ -1,8 +1,8 @@
-import { DatePicker } from '@mui/lab'
-import { Box, MenuItem, Select, Typography, ProgressBar, LinearProgress, Card } from '@mui/material'
+import { Box, Card } from '@mui/material'
 import React from 'react'
 import CustomProgressBar from 'src/@core/components/CustomProgressBar'
 import CustomSelectMenu from 'src/@core/components/CustomSelectMenu'
+import Heading from 'src/@core/components/Heading'
 
 const BookingChart = () => {
   const progressData = [
@@ -54,7 +54,7 @@ const BookingChart = () => {
     >
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <Box>
-          <Typography sx={{ fontSize: '18px', fontWeight: '600', lineHeight: '24px' }}>Booking Analytics</Typography>
+          <Heading headingText={'Booking Analytics'} />
         </Box>
         <Box>
           <CustomSelectMenu title={'Date & Time'} bgcolor={'#F8F8F9'} menuOptions={menuOptions} />

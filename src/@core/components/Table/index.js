@@ -4,10 +4,9 @@ import { Box, Button, TextField } from '@mui/material';
 
 // Internal Imports
 import TableHeader from './TableHeader';
-import Columns from './column';
 
-const Table = ({ data }) => {
-  const columns = Columns();
+const Table = ({ data, columns }) => {
+  columns = columns();
 
   // Custom Pagination Component
   const CustomPagination = ({ page, pageCount, onPageChange }) => {
@@ -26,7 +25,8 @@ const Table = ({ data }) => {
 
         {/* Page Input */}
         <TextField
-          value={page.toString().padStart(2, '0')}
+          // value={page.toString().padStart(2, '0')}
+          value={10}
           onChange={(e) => {
             const newPage = parseInt(e.target.value, 10);
             if (!isNaN(newPage) && newPage >= 1 && newPage <= pageCount) {
@@ -71,7 +71,7 @@ const Table = ({ data }) => {
       {/* DataGrid */}
       <DataGrid
         autoHeight
-        rowHeight={60}
+        rowHeight={70}
         rows={data || []}
         columns={columns}
         checkboxSelection

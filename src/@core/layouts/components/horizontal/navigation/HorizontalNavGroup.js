@@ -175,14 +175,14 @@ const HorizontalNavGroup = props => {
                 ...(menuOpen ? { backgroundColor: 'action.hover' } : {}),
                 ...(!hasParent
                   ? {
-                      borderRadius: '8px',
-                      '&.Mui-selected': {
-                        backgroundColor: 'primary.main',
-                        '& .MuiTypography-root, & .MuiListItemIcon-root, & svg': {
-                          color: 'common.white'
-                        }
+                    borderRadius: '8px',
+                    '&.Mui-selected': {
+                      backgroundColor: 'primary.main',
+                      '& .MuiTypography-root, & .MuiListItemIcon-root, & svg': {
+                        color: 'common.white'
                       }
                     }
+                  }
                   : {})
               }}
             >
@@ -247,6 +247,7 @@ const HorizontalNavGroup = props => {
                       : { boxShadow: 4 })
                   }}
                 >
+
                   <HorizontalNavItems {...props} hasParent horizontalNavItems={item.children} />
                 </NavigationMenu>
               </Box>

@@ -30,18 +30,7 @@ const themeOptions = settings => {
         fontFamily:
           userFontFamily ||
           [
-            'Inter',
-            'sans-serif',
-            '-apple-system',
-            'BlinkMacSystemFont',
-            '"Segoe UI"',
-            'Roboto',
-            '"Helvetica Neue"',
-            'Arial',
-            'sans-serif',
-            '"Apple Color Emoji"',
-            '"Segoe UI Emoji"',
-            '"Segoe UI Symbol"'
+            'Outfit'
           ].join(',')
       },
       shadows: shadows(mode),

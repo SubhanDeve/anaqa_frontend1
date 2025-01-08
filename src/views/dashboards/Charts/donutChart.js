@@ -65,10 +65,12 @@ const DonutChart = () => {
         flexDirection: 'column',
         justifyContent: 'space-between',
         alignItems: 'center',
-        gap: '19px'
+        gap: '19px',
       }}
     >
-      <Box sx={{ width: '100%', textAlign: 'center' }}>
+      <Box sx={{
+        width: '100%', textAlign: 'center', marginTop: '-50px'
+      }}>
         <ReactApexcharts
           options={optionsData}
           series={seriesData}
@@ -76,7 +78,7 @@ const DonutChart = () => {
           width="100%"
         />
       </Box>
-      <CustomOutlineButton text="See Details" width="100%" />
+      <CustomOutlineButton text="See Details" width="68%" />
     </Card>
   );
 };

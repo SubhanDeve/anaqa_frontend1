@@ -1,0 +1,93 @@
+export const RowData = [
+  {
+    id: 1,
+    code: 'TX131862',
+    title: 'Promotion A',
+    salon: 'ABC Salon',
+    serviceType: 'Hair Cut',
+    discountType: 'Coupon',
+    discountValue: '20%',
+    validFrom: '18 Sep,2024',
+    validTo: '18 Sep,2024 ',
+    status: 'Active',
+    action: '...'
+  },
+  {
+    id: 2,
+    code: 'TX131862',
+    title: 'Promotion A',
+    salon: 'ABC Salon',
+    serviceType: 'Hair Cut',
+    discountType: 'Coupon',
+    discountValue: '20%',
+    validFrom: '18 Sep,2024',
+    validTo: '18 Sep,2024 ',
+    status: 'Expired',
+    action: '...'
+  },
+  {
+    id: 3,
+    code: '-----',
+    title: 'Promotion A',
+    salon: 'ABC Salon',
+    serviceType: 'Hair Cut',
+    discountType: 'Percentage',
+    discountValue: '20%',
+    validFrom: '18 Sep,2024',
+    validTo: '18 Sep,2024 ',
+    status: 'Upcoming',
+    action: '...'
+  },
+  {
+    id: 4,
+    code: '-----',
+    title: 'Promotion A',
+    salon: 'ABC Salon',
+    serviceType: 'Hair Cut',
+    discountType: 'Flat',
+    discountValue: '20%',
+    validFrom: '18 Sep,2024',
+    validTo: '18 Sep,2024 ',
+    status: 'Active',
+    action: '...'
+  },
+  {
+    id: 5,
+    code: 'TX131862',
+    title: 'Promotion A',
+    salon: 'ABC Salon',
+    serviceType: 'Hair Cut',
+    discountType: 'Coupon',
+    discountValue: '20%',
+    validFrom: '18 Sep,2024',
+    validTo: '18 Sep,2024 ',
+    status: 'Active',
+    action: '...'
+  },
+  {
+    id: 6,
+    code: 'TX131862',
+    title: 'Promotion A',
+    salon: 'ABC Salon',
+    serviceType: 'Hair Cut',
+    discountType: 'Coupon',
+    discountValue: '20%',
+    validFrom: '18 Sep,2024',
+    validTo: '18 Sep,2024 ',
+    status: 'Active',
+    action: '...'
+  },
+  {
+    id: 7,
+    code: '-----',
+    title: 'Promotion A',
+    salon: 'ABC Salon',
+    serviceType: 'Hair Cut',
+    discountType: 'Percentage',
+    discountValue: '20%',
+    validFrom: '18 Sep,2024',
+    validTo: '18 Sep,2024 ',
+    status: 'Active',
+    action: '...'
+  }
+]

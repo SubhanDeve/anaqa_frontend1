@@ -21,8 +21,19 @@ const routes = [
   },
   {
     title: 'Services',
-    path: '/services',
     icon: 'services',
+    children: [
+      {
+        title: 'Services',
+        path: '/services',
+        icon: ''
+      },
+      {
+        title: 'Sub Services',
+        path: '/subservices',
+        icon: ''
+      },
+    ]
   },
   {
     title: 'Promotions',
@@ -31,13 +42,50 @@ const routes = [
   },
   {
     title: 'Reviews',
-    path: '/reviews',
     icon: 'reviews',
+    children: [
+      {
+        title: 'Salon Reviews',
+        path: '/reviews',
+        icon: ''
+      },
+      {
+        title: 'Professional Reviews',
+        path: '/professional',
+        icon: ''
+      },
+    ]
   },
   {
     title: 'Requests',
-    path: '/requests',
     icon: 'requests',
+    children: [
+      {
+        title: 'Salon Registration',
+        path: '/requests',
+        icon: ''
+      },
+      {
+        title: 'Sub Service Addition',
+        path: '#',
+        icon: ''
+      },
+      {
+        title: 'Service Addition',
+        path: '#',
+        icon: ''
+      },
+      {
+        title: 'Pricing Change Request',
+        path: '#',
+        icon: ''
+      },
+      {
+        title: 'Promotion Request',
+        path: '#',
+        icon: ''
+      },
+    ]
   },
   {
     title: 'Complaints',

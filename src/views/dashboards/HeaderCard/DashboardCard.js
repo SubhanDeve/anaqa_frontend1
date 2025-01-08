@@ -13,14 +13,15 @@ const DashboardCard = ({ name, icons, tradeIcon, total, countPercent, tradebgCol
       <Card
         sx={{
           backgroundColor: 'white',
-          height: 'auto',
+          height: '100%',
           borderRadius: '16px',
           padding: "20px 16px",
-          maxHeight: '161px',
           boxShadow: 'none',
           width: '100%',
           gap: '14px',
-          display: 'grid',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between'
         }}
       >
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>

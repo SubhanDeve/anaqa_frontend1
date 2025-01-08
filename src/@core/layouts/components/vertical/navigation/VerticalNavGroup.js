@@ -31,6 +31,7 @@ import VerticalNavItems from './VerticalNavItems'
 import UserIcon from 'src/layouts/components/UserIcon'
 import Translations from 'src/layouts/components/Translations'
 import CanViewNavGroup from 'src/layouts/components/acl/CanViewNavGroup'
+import Note from 'src/icons/note'
 
 const MenuItemTextWrapper = styled(Box)(() => ({
   width: '100%',
@@ -174,7 +175,7 @@ const VerticalNavGroup = props => {
     if (mode === 'semi-dark') {
       return {
         '&:hover': {
-          backgroundColor: `rgba(${theme.palette.customColors.dark}, 0.05)`
+          backgroundColor: `white`
         },
         '&.Mui-selected': {
           backgroundColor: `rgba(${theme.palette.customColors.dark}, 0.08)`,
@@ -269,12 +270,14 @@ const VerticalNavGroup = props => {
                 }}
               >
                 {item.badgeContent ? (
-                  <Chip
-                    size='small'
-                    label={item.badgeContent}
-                    color={item.badgeColor || 'primary'}
-                    sx={{ mr: 0.75, '& .MuiChip-label': { px: 2.5, lineHeight: 1.385, textTransform: 'capitalize' } }}
-                  />
+                  <>
+                    <Chip
+                      size='small'
+                      label={item.badgeContent}
+                      color={item.badgeColor || 'primary'}
+                      sx={{ mr: 0.75, '& .MuiChip-label': { px: 2.5, lineHeight: 1.385, textTransform: 'capitalize' } }}
+                    />
+                  </>
                 ) : null}
                 <Icon icon={direction === 'ltr' ? 'mdi:chevron-right' : 'mdi:chevron-left'} />
               </Box>
@@ -291,6 +294,7 @@ const VerticalNavGroup = props => {
               transition: 'all 0.25s ease-in-out'
             }}
           >
+
             <VerticalNavItems
               {...props}
               parent={item}
@@ -298,6 +302,7 @@ const VerticalNavGroup = props => {
               verticalNavItems={item.children}
               isSubToSub={parent && item.children ? item : undefined}
             />
+            <img src='/icons/layout/subMenu.svg' />
           </Collapse>
         </ListItem>
       </Fragment>

@@ -6,7 +6,12 @@ const CustomContainButton = ({ text, width }) => {
     <Button
       variant='contained'
       size='large'
-      sx={{ width: width, textTransform: 'none', boxShadow: 'none', ':hover': { boxShadow: 'none' } }}
+      sx={{
+        width: width,
+        textTransform: 'none',
+        boxShadow: 'none',
+        ':hover': { boxShadow: 'none', backgroundColor: '#B76271' }
+      }}
     >
       {text}
     </Button>

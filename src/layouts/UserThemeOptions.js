@@ -114,7 +114,7 @@ const UserThemeOptions = () => {
     },
     typography: {
       fontFamily:
-        '"Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"',
+        '"Outfit"',
     },
     shadows: mode === 'light' ? [
       'none',

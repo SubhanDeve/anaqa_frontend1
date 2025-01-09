@@ -59,3 +59,22 @@ code[class*='language-'] {
   height: 20px;
   line-height: 20px;
 }
+
+.ql-toolbar.ql-snow {
+  border: 1px solid #e3e3e3;
+  border-radius: 5px;
+}
+
+.ql-toolbar.ql-snow .ql-formats {
+  background-color: #f8f8f9;
+}
+
+.ql-container.ql-snow {
+  border: 1px solid #e3e3e3;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.ql-toolbar.ql-snow + .ql-container.ql-snow {
+  border-top: 1px;
+}

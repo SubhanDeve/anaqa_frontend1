@@ -1,7 +1,7 @@
 import { Button } from '@mui/material'
 import React from 'react'
 
-const CustomSecondaryButton = ({ text, width }) => {
+const CustomSecondaryButton = ({ text, width, handlePrint, type }) => {
   return (
     <Button
       variant='contained'
@@ -13,6 +13,8 @@ const CustomSecondaryButton = ({ text, width }) => {
         ':hover': { boxShadow: 'none', backgroundColor: '#ECD5D9' },
         width: width
       }}
+      onClick={handlePrint}
+      type={type}
     >
       {text}
     </Button>

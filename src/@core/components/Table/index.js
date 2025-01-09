@@ -4,10 +4,10 @@ import { Box, Button, TextField } from '@mui/material';
 
 // Internal Imports
 import TableHeader from './TableHeader';
+import { forwardRef } from 'react';
 
-const Table = ({ data, columns }) => {
+const Table = forwardRef(({ data, columns }, ref) => {
   columns = columns();
-
   // Custom Pagination Component
   const CustomPagination = ({ page, pageCount, onPageChange }) => {
     return (
@@ -26,7 +26,7 @@ const Table = ({ data, columns }) => {
         {/* Page Input */}
         <TextField
           // value={page.toString().padStart(2, '0')}
-          value={10}
+          value={'01'}
           onChange={(e) => {
             const newPage = parseInt(e.target.value, 10);
             if (!isNaN(newPage) && newPage >= 1 && newPage <= pageCount) {
@@ -56,6 +56,7 @@ const Table = ({ data, columns }) => {
 
   return (
     <Box
+      ref={ref}
       sx={{
         display: 'flex',
         flexDirection: 'column',
@@ -70,6 +71,7 @@ const Table = ({ data, columns }) => {
 
       {/* DataGrid */}
       <DataGrid
+
         autoHeight
         rowHeight={70}
         rows={data || []}
@@ -122,6 +124,7 @@ const Table = ({ data, columns }) => {
       />
     </Box>
   );
-};
+});
+
 
 export default Table;

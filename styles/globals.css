@@ -76,5 +76,5 @@ code[class*='language-'] {
 }
 
 .ql-toolbar.ql-snow + .ql-container.ql-snow {
-  border-top: 1px;
+  border-top: 1px solid #e3e3e3 !important;
 }

@@ -30,7 +30,7 @@ const routes = [
       },
       {
         title: 'Sub Services',
-        path: '/subservices',
+        path: '/services/subservices',
         icon: ''
       },
     ]

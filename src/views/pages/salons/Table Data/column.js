@@ -1,7 +1,11 @@
 // External Imports
+import { Menu, MenuItem } from '@mui/material'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
+import Router from 'next/router'
+import { useState } from 'react'
 import CustomAvatar from 'src/@core/components/mui/avatar'
+import SalonProfile from '../profile'
 
 const Columns = () => {
   const renderClient = row => {
@@ -147,12 +151,29 @@ const Columns = () => {
       align: 'center',
       headerAlign: 'center',
       renderCell: () => {
+        const [anchorEl, setAnchorEl] = useState(null);
+        const open = Boolean(anchorEl);
+        const handleClick = (event) => {
+          setAnchorEl(event.currentTarget);
+        };
+        const handleClose = () => {
+          setAnchorEl(null);
+        };
 
+        const profilePage = () => {
+          Router.push('/salons/profile')
+        }
         return (
           <Box sx={{ display: 'flex', alignItems: 'flex-start' }} >
             <Box>
-              <img src='/icons/actionicon.svg' alt='...' width={'30px'} />
+              <img src='/icons/actionicon.svg' alt='...' width={'30px'} onClick={handleClick} />
             </Box>
+            <Menu anchorEl={anchorEl} open={open} onClose={handleClose} >
+              <MenuItem onClick={profilePage}>Details</MenuItem>
+              <MenuItem>Edit</MenuItem>
+              <MenuItem>Block</MenuItem>
+              <MenuItem>Delete</MenuItem>
+            </Menu>
           </Box>
         )
       }

@@ -155,18 +155,18 @@ const VerticalNavGroup = props => {
   const conditionalIconColor = () => {
     if (mode === 'semi-dark') {
       return {
-        color: `rgba(${theme.palette.customColors.dark}, ${parent && item.children ? 0.6 : 0.87})`
+        color: `#CD929D`
       }
     } else
       return {
-        color: parent && item.children ? 'text.secondary' : 'text.primary'
+        color: parent && item.children ? '#CD929D' : '#CD929D'
       }
   }
 
   const conditionalArrowIconColor = () => {
     if (mode === 'semi-dark') {
       return {
-        color: `rgba(${theme.palette.customColors.dark}, 0.6)`
+        color: `#CD929D`
       }
     } else return {}
   }
@@ -178,18 +178,20 @@ const VerticalNavGroup = props => {
           backgroundColor: `white`
         },
         '&.Mui-selected': {
-          backgroundColor: `rgba(${theme.palette.customColors.dark}, 0.08)`,
+          backgroundColor: `#FAF5F6`,
           '&:hover': {
-            backgroundColor: `rgba(${theme.palette.customColors.dark}, 0.08)`
+            backgroundColor: `#FAF5F6`
           }
         }
       }
     } else {
       return {
         '&.Mui-selected': {
-          backgroundColor: 'action.selected',
+          backgroundColor: '#FAF5F6',
+          color: '#CD929D',
           '&:hover': {
-            backgroundColor: 'action.selected'
+            backgroundColor: '#FAF5F6',
+            color: '#CD929D',
           }
         }
       }
@@ -213,6 +215,7 @@ const VerticalNavGroup = props => {
                 : `${theme.spacing(navCollapsed && !navHover ? 2 : 3)} !important`
           }}
         >
+
           <ListItemButton
             className={clsx({
               'Mui-selected': groupActive.includes(item.title) || currentActiveGroup.includes(item.title)
@@ -226,13 +229,14 @@ const VerticalNavGroup = props => {
               pr: navCollapsed && !navHover ? (collapsedNavWidth - navigationBorderWidth - 24 - 16) / 8 : 3,
               pl: navCollapsed && !navHover ? (collapsedNavWidth - navigationBorderWidth - 24 - 16) / 8 : 4,
               '&.Mui-selected.Mui-focusVisible': {
-                backgroundColor: 'action.focus',
+                backgroundColor: '#FAF5F6',
                 '&:hover': {
-                  backgroundColor: 'action.focus'
+                  backgroundColor: '#FAF5F6'
                 }
               }
             }}
           >
+            <img src='/icons/layout/subMenu.svg' />
             {isSubToSub ? null : (
               <ListItemIcon
                 sx={{
@@ -252,7 +256,7 @@ const VerticalNavGroup = props => {
                   noWrap: true
                 })}
               >
-                <Translations text={item.title} />
+                <Translations text={item.title}  />
               </Typography>
               <Box
                 className='menu-item-meta'
@@ -294,7 +298,7 @@ const VerticalNavGroup = props => {
               transition: 'all 0.25s ease-in-out'
             }}
           >
-
+            <img src='/icons/layout/subMenu.svg' />
             <VerticalNavItems
               {...props}
               parent={item}
@@ -302,7 +306,6 @@ const VerticalNavGroup = props => {
               verticalNavItems={item.children}
               isSubToSub={parent && item.children ? item : undefined}
             />
-            <img src='/icons/layout/subMenu.svg' />
           </Collapse>
         </ListItem>
       </Fragment>

@@ -8,7 +8,6 @@ const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
 const RichTextEditor = () => {
   const [value, setValue] = useState('');
-  console.log(value);
   const modules = {
     toolbar: [
       [{ font: [] }], // Font family
@@ -44,19 +43,6 @@ const RichTextEditor = () => {
           modules={modules}
           formats={formats}
           theme="snow"
-        />
-      </Box>
-      <Box sx={{ mt: 3 }}>
-        <Typography variant="subtitle1">Editor Output:</Typography>
-        <Box
-          sx={{
-            p: 2,
-            border: '1px solid #e0e0e0',
-            borderRadius: '4px',
-            backgroundColor: '#f9f9f9',
-          }}
-          dangerouslySetInnerHTML={{ __html: value }}
-
         />
       </Box>
     </Box>

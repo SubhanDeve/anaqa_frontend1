@@ -49,7 +49,7 @@ const HeaderCard = () => {
     <Grid container gap={6} sx={{ height: '100%' }}>
       {conduct?.map((item, index) => {
         return (
-          <Grid item key={index} xs={12} sm={5.88} md={5.88} lg={5.88} xxl={5.88} sx={{ display: 'flex' }}>
+          <Grid item key={index} xs={12} sm={5.86} md={5.86} lg={5.86} xxl={5.86} sx={{ display: 'flex' }}>
             <DashboardCard name={item.name} icons={item.icon} tradeIcon={item.tradeIcon} countPercent={item.countPercent} total={item.total} tradebgColor={item.tradebgColor} tradetextColor={item.tradetextColor} index={index} />
           </Grid>
         )

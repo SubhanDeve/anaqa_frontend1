@@ -1,7 +1,7 @@
 import { Box, Menu, MenuItem, Typography } from '@mui/material'
 import React from 'react'
 
-const CustomSelectMenu = ({ menuOptions, bgcolor, title }) => {
+const CustomSelectMenu = ({ menuOptions, bgcolor, title, width }) => {
   const [anchorEl, setAnchorEl] = React.useState(null)
   const [selectedStage, setSelectedStage] = React.useState(title)
 
@@ -23,15 +23,16 @@ const CustomSelectMenu = ({ menuOptions, bgcolor, title }) => {
         onClick={handleClick}
         sx={{
           display: 'flex',
-          justifyContent: 'center',
+          justifyContent: 'space-between',
           alignItems: 'center',
           gap: '16px',
           backgroundColor: bgcolor,
           borderRadius: '5px',
-          width: 'fit-content',
+          width: width,
           padding: '10px',
           fontSize: '14px',
           color: '#6C757D',
+          border: '1px solid #E3E3E3',
           fontWeight: '400',
           '&:hover': {
             backgroundColor: 'none'

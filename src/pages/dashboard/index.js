@@ -34,7 +34,7 @@ const Dashboard = () => {
   return (
     <Box sx={{ display: 'grid', alignItems: 'center', gap: '20px' }}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }} >
-        <CustomPageHeading text="Dashboard" />
+        <Typography sx={{ fontSize: '26px', fontWeight: '600', color: '#212529' }}>Dashboard</Typography>
 
         <Box sx={{ display: { xs: 'grid', lg: 'flex' }, gap: '5px' }}>
           <CustomSelectMenu menuOptions={menuOptions} bgcolor={'#FFFFFF'} title={'Salon'} />

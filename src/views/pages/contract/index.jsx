@@ -21,7 +21,7 @@ const ContractPage = () => {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
       <Box>
-        <CustomPageHeading text={'Complaints'} total={'06'} addButton={'Add Template'} openModal={handleModalOpen} />
+        <CustomPageHeading text={'Contract'} addButton={'Add Template'} openModal={handleModalOpen} />
       </Box>
       <Box>
         <Grid container gap={'20px'}>
@@ -58,7 +58,7 @@ const ContractPage = () => {
               </Box>
             </Card>
           </Grid>
-          <Grid item xs={5.6} md={8}>
+          <Grid item xs={5.6} md={2}>
             <Card sx={{ width: 'fit-content' }} elevation={0}>
               <Typography
                 sx={{
@@ -81,10 +81,6 @@ const ContractPage = () => {
                   eget viverra in risus. Amet non tincidunt feugiat posuere magna maecenas. Dui sed urna tempus
                   ullamcorper nisl. Sapien tincidunt viverra viverra nisi velit.
                 </Typography>
-
-                <Box>
-                  <RichTextEditor />
-                </Box>
 
                 <hr></hr>
               </Box>

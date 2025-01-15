@@ -36,13 +36,21 @@ const RichTextEditor = () => {
       <Typography sx={{ mb: 2, fontSize: '14px', fontWeight: '500', color: '#6C757D' }}>
         Body Text
       </Typography>
-      <Box>
+      <Box
+        sx={{
+          height: '220px', // Adjust height here
+          '& .ql-container': {
+            height: 'calc(100% - 20%)', // Subtract toolbar height
+          },
+        }}
+      >
         <ReactQuill
           value={value}
           onChange={setValue}
           modules={modules}
           formats={formats}
           theme="snow"
+          style={{ height: '100%' }} // Ensure editor takes full height of its container
         />
       </Box>
     </Box>

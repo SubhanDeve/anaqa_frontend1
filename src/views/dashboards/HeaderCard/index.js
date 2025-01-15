@@ -6,7 +6,7 @@ const conduct = [
     id: 1,
     icon: '/icons/totalcard/userthree.svg',
     name: 'Total users',
-    total: '6323',
+    total: '6,323',
     countPercent: '16%',
     tradebgColor: '#FFFBEA',
     tradetextColor: '#FFB91B',
@@ -26,7 +26,7 @@ const conduct = [
     id: 3,
     icon: '/icons/totalcard/note.svg',
     name: 'Total Bookings',
-    total: '4724',
+    total: '4,724',
     countPercent: '16%',
     tradebgColor: '#FFF2F1',
     tradetextColor: '#FF6C64',
@@ -49,7 +49,7 @@ const HeaderCard = () => {
     <Grid container gap={6} sx={{ height: '100%' }}>
       {conduct?.map((item, index) => {
         return (
-          <Grid item key={index} xs={12} sm={5.86} md={5.86} lg={5.86} xxl={5.86} sx={{ display: 'flex' }}>
+          <Grid item key={index} xs={11} sm={5.82} md={5.77} lg={5.77} xxl={5.83} sx={{ display: 'flex' }}>
             <DashboardCard name={item.name} icons={item.icon} tradeIcon={item.tradeIcon} countPercent={item.countPercent} total={item.total} tradebgColor={item.tradebgColor} tradetextColor={item.tradetextColor} index={index} />
           </Grid>
         )

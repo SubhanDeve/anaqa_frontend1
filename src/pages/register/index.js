@@ -33,7 +33,7 @@ import { useForm, Controller } from 'react-hook-form'
 import themeConfig from 'src/configs/themeConfig'
 
 // ** Layout Import
-import BlankLayout from 'src/@core/layouts/BlankLayout'
+import BlankLayout from 'src/@core/layoutsss/BlankLayout'
 
 // ** Hooks
 import { useAuth } from 'src/hooks/useAuth'

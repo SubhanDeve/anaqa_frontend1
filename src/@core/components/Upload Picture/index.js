@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, Box, Typography } from '@mui/material';
 import CustomContainButton from '../custom-button/CustomContainButton';
 
-const ImageUpload = () => {
+const ImageUpload = ({ title }) => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [preview, setPreview] = useState(null);
 
@@ -75,7 +75,7 @@ const ImageUpload = () => {
         flexDirection: 'column',
         gap: '8px'
       }}>
-        <Typography sx={{ fontSize: '14px', fontWeight: '500', color: '#212529', lineHeight: '14px' }}>Salon&apos;s Profile</Typography>
+        <Typography sx={{ fontSize: '14px', fontWeight: '500', color: '#212529', lineHeight: '14px' }}>{title}</Typography>
         <Button
           variant="contained"
           component="label"

@@ -1,4 +1,4 @@
-import { Box, Card, Grid, Tabs, Typography, Tab } from '@mui/material'
+import { Box, Card, Grid, Tabs, Typography, Tab, useTheme, useMediaQuery } from '@mui/material'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import BackButton from 'src/@core/components/custom-button/BackButton'
@@ -18,7 +18,8 @@ const StyledTabs = styled(Tabs)({
   '& .MuiTabs-indicator': {
     display: 'none' // Hide the indicator
   },
-  width: '100%'
+  width: '100%',
+  overflow: 'auto'
 })
 const StyledTab = styled(Tab)({
   textTransform: 'none',
@@ -30,6 +31,7 @@ const StyledTab = styled(Tab)({
   alignItems: 'start',
   padding: '14px 10px',
   marginBottom: '8px',
+  marginRight: '8px',
   ':active': {
     backgroundColor: '#FAF5F6'
   },
@@ -70,6 +72,8 @@ function a11yProps(index) {
 
 const SalonProfile = () => {
   const [value, setValue] = useState(0)
+  const theme = useTheme()
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'))
 
   const handleChange = (event, newValue) => {
     setValue(newValue)
@@ -98,7 +102,7 @@ const SalonProfile = () => {
           </Box>
         </Box>
         <Grid container sx={{ padding: '20px 30px 20px 30px', marginTop: '-5%' }} gap={'20px'}>
-          <Grid item>
+          <Grid item xs={12} md={3} lg={3} xl={2}>
             <Card elevation={0} sx={{ height: '100%', width: '100%', padding: '14px', border: '1px solid #F8F8F9' }}>
               <Box
                 sx={{
@@ -131,50 +135,26 @@ const SalonProfile = () => {
               <Box sx={{ padding: '12px 0px' }}>
                 <hr></hr>
               </Box>
-              <Box>
-                <StyledTabs orientation='vertical' value={value} onChange={handleChange}>
+              <Box sx={{ overflow: 'auto', width: '100%' }}>
+                <StyledTabs
+                  orientation={isSmallScreen ? 'horizontal' : 'vertical'}
+                  value={value}
+                  onChange={handleChange}
+                >
                   <StyledTab label={'Salon Information'} {...a11yProps(0)} />
-                  <StyledTab
-                    label={'Bookings'}
-                    sx={{ textTransform: 'none', fontSize: '16px', fontWeight: '500', lineHeight: '16px' }}
-                    {...a11yProps(1)}
-                  />
-                  <StyledTab
-                    label={'Commission Management'}
-                    sx={{ textTransform: 'none', fontSize: '16px', fontWeight: '500', lineHeight: '16px' }}
-                    {...a11yProps(2)}
-                  />
-                  <StyledTab
-                    label={'Invoices'}
-                    sx={{ textTransform: 'none', fontSize: '16px', fontWeight: '500', lineHeight: '16px' }}
-                    {...a11yProps(3)}
-                  />
-                  <StyledTab
-                    label={'Professionals'}
-                    sx={{ textTransform: 'none', fontSize: '16px', fontWeight: '500', lineHeight: '16px' }}
-                    {...a11yProps(4)}
-                  />
-                  <StyledTab
-                    label={'Services'}
-                    sx={{ textTransform: 'none', fontSize: '16px', fontWeight: '500', lineHeight: '16px' }}
-                    {...a11yProps(5)}
-                  />
-                  <StyledTab
-                    label={'Update Password'}
-                    sx={{ textTransform: 'none', fontSize: '16px', fontWeight: '500', lineHeight: '16px' }}
-                    {...a11yProps(6)}
-                  />
-                  <StyledTab
-                    label={'Reviews'}
-                    sx={{ textTransform: 'none', fontSize: '16px', fontWeight: '500', lineHeight: '16px' }}
-                    {...a11yProps(7)}
-                  />
+                  <StyledTab label={'Bookings'} {...a11yProps(1)} />
+                  <StyledTab label={'Commission Management'} {...a11yProps(2)} />
+                  <StyledTab label={'Invoices'} {...a11yProps(3)} />
+                  <StyledTab label={'Professionals'} {...a11yProps(4)} />
+                  <StyledTab label={'Services'} {...a11yProps(5)} />
+                  <StyledTab label={'Update Password'} {...a11yProps(6)} />
+                  <StyledTab label={'Reviews'} {...a11yProps(7)} />
                 </StyledTabs>
               </Box>
             </Card>
           </Grid>
-          <Grid item>
-            <Card elevation={0} sx={{ height: '100%', width: '65.5vw', border: '1px solid #F8F8F9' }}>
+          <Grid item xs={12} md={8.7} lg={8.6} xl={9.8}>
+            <Card elevation={0} sx={{ height: '100%', border: '1px solid #F8F8F9' }}>
               <TabPanel value={value} index={0}>
                 <SalonInfo />
               </TabPanel>

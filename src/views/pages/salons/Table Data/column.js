@@ -164,15 +164,51 @@ const Columns = () => {
           Router.push('/salons/profile')
         }
         return (
-          <Box sx={{ display: 'flex', alignItems: 'flex-start' }} >
+          <Box sx={{ display: 'flex', alignItems: 'flex-start', cursor: 'pointer' }} >
             <Box>
               <img src='/icons/actionicon.svg' alt='...' width={'30px'} onClick={handleClick} />
             </Box>
             <Menu anchorEl={anchorEl} open={open} onClose={handleClose} >
-              <MenuItem onClick={profilePage}>Details</MenuItem>
-              <MenuItem>Edit</MenuItem>
-              <MenuItem>Block</MenuItem>
-              <MenuItem>Delete</MenuItem>
+              <MenuItem
+                sx={{
+                  display: 'flex',
+                  gap: '10px',
+                  alignItems: 'center'
+                }}
+                onClick={profilePage}
+              > <img src='/icons/tableicons/detail.svg' width={'18px'} />
+                Details
+              </MenuItem>
+              <MenuItem
+                sx={{
+                  display: 'flex',
+                  gap: '10px',
+                  alignItems: 'center'
+                }}
+              >
+                <img src='/icons/tableicons/edit.svg' width={'18px'} />
+                Edit
+              </MenuItem>
+              <MenuItem
+                sx={{
+                  display: 'flex',
+                  gap: '10px',
+                  alignItems: 'center'
+                }}
+              >
+                <img src='/icons/tableicons/reject.svg' width={'18px'} />
+                Block
+              </MenuItem>
+              <MenuItem
+                sx={{
+                  display: 'flex',
+                  gap: '10px',
+                  alignItems: 'center'
+                }}
+              >
+                <img src='/icons/tableicons/delete.svg' width={'20px'} />
+                Delete
+              </MenuItem>
             </Menu>
           </Box>
         )

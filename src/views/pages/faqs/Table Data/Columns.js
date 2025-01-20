@@ -1,6 +1,7 @@
 // External Imports
-import { Typography } from '@mui/material'
+import { Menu, MenuItem, Typography } from '@mui/material'
 import Box from '@mui/material/Box'
+import { useState } from 'react'
 
 const Columns = () => {
 
@@ -37,20 +38,43 @@ const Columns = () => {
       }
     },
     {
-      flex: 0.01,
-      width: 10,
+      flex: 0.05,
+      minWidth: 100,
       field: 'actions',
-      headerName: 'Action',
+      headerName: 'Actions',
       align: 'center',
       headerAlign: 'center',
       renderCell: () => {
+        const [anchorEl, setAnchorEl] = useState(null);
+        const open = Boolean(anchorEl);
+        const handleClick = (event) => {
+          setAnchorEl(event.currentTarget);
+        };
+        const handleClose = () => {
+          setAnchorEl(null);
+        };
 
+        const profilePage = () => {
+          Router.push('/salons/profile')
+        }
         return (
           <Box sx={{ display: 'flex', alignItems: 'flex-start' }} >
             <Box>
-              <img src='/icons/actionicon.svg' alt='...' width={'30px'} />
+              <img src='/icons/actionicon.svg' alt='...' width={'30px'} onClick={handleClick} />
             </Box>
-          </Box>
+            <Menu anchorEl={anchorEl} open={open} onClose={handleClose} >
+              <MenuItem sx={{
+                display: 'flex',
+                gap: '10px',
+                alignItems: 'center'
+              }}> <img src='/icons/tableicons/edit.svg' width={'18px'} /> Edit</MenuItem>
+              <MenuItem sx={{
+                display: 'flex',
+                gap: '10px',
+                alignItems: 'center'
+              }}> <img src='/icons/tableicons/delete.svg' width={'20px'} /> Delete</MenuItem>
+            </Menu>
+          </Box >
         )
       }
     },

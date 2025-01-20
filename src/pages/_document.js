@@ -18,8 +18,8 @@ class CustomDocument extends Document {
           <link rel='preconnect' href='https://fonts.googleapis.com' />
           <link rel='preconnect' href='https://fonts.gstatic.com' />
           <link href='https://fonts.googleapis.com/css?family=Outfit' rel='stylesheet' />
-          <link rel='apple-touch-icon' sizes='180x180' href='/anaqa.svg' />
-          <link rel='shortcut icon' href='/anaqa.svg' />
+          <link rel='apple-touch-icon' sizes='180x180' href='/anaqawhite.svg' />
+          <link rel='shortcut icon' href='/anaqawhite.svg' />
         </Head>
         <body>
           <Main />

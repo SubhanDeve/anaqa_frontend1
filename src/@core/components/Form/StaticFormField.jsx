@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material'
 import React from 'react'
 
-const StaticFormField = ({ label, value, image }) => {
+const StaticFormField = ({ label, value, image, image2 }) => {
   return (
     <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '8px' }}>
       <Typography sx={{ fontSize: '14px', fontWeight: '500', lineHeight: '14px' }}>{label}</Typography>
@@ -18,6 +18,7 @@ const StaticFormField = ({ label, value, image }) => {
       >
         {image ? <img src='/images/salon/saudi-arabia.png' /> : null}
         <Typography sx={{ fontSize: '13px', fontWeight: '400', lineHeight: '16px' }}>{value}</Typography>
+        {image2 ? <img src={image2} /> : null}
       </Box>
     </Box>
   )

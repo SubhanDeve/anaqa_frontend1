@@ -1,6 +1,9 @@
 // External Imports
+import { Menu, MenuItem } from '@mui/material'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
+import { useRouter } from 'next/router'
+import { useState } from 'react'
 import CustomAvatar from 'src/@core/components/mui/avatar'
 
 const Columns = () => {
@@ -37,47 +40,72 @@ const Columns = () => {
       minWidth: 100,
       field: 'name',
       headerName: 'Name',
-      align: 'center',
-      headerAlign: 'center'
+      align: 'left',
+      headerAlign: 'left'
     },
     {
       flex: 0.05,
       minWidth: 100,
       field: 'email',
       headerName: 'Email',
-      align: 'center',
-      headerAlign: 'center'
+      align: 'left',
+      headerAlign: 'left'
     },
     {
       flex: 0.05,
       minWidth: 100,
       field: 'number',
       headerName: 'Number',
-      align: 'center',
-      headerAlign: 'center'
+      align: 'left',
+      headerAlign: 'left'
     },
     {
       flex: 0.05,
       minWidth: 100,
       field: 'role',
       headerName: 'Role',
-      align: 'center',
-      headerAlign: 'center'
+      align: 'left',
+      headerAlign: 'left'
     },
     {
-      flex: 0.03,
-      width: 10,
+      flex: 0.05,
+      minWidth: 100,
       field: 'actions',
-      headerName: 'Actions',
+      headerName: 'Action',
       align: 'center',
       headerAlign: 'center',
       renderCell: () => {
+        const [anchorEl, setAnchorEl] = useState(null);
+        const open = Boolean(anchorEl);
+        const router = useRouter()
+        const handleClick = (event) => {
+          setAnchorEl(event.currentTarget);
+        };
+        const handleClose = () => {
+          setAnchorEl(null);
+        };
 
+
+        const professionalPage = () => {
+          router.push('/salons/viewprofessionals')
+        }
         return (
-          <Box sx={{ display: 'flex', alignItems: 'flex-start' }} >
+          <Box sx={{ display: 'flex', alignItems: 'flex-start', cursor: 'pointer' }} >
             <Box>
-              <img src='/icons/actionicon.svg' alt='...' width={'30px'} />
+              <img src='/icons/actionicon.svg' alt='...' width={'30px'} onClick={handleClick} />
             </Box>
+            <Menu anchorEl={anchorEl} open={open} onClose={handleClose} >
+              <MenuItem
+                sx={{
+                  display: 'flex',
+                  gap: '10px',
+                  alignItems: 'center'
+                }}
+                onClick={professionalPage}
+              > <img src='/icons/tableicons/detail.svg' width={'18px'} />
+                View Details
+              </MenuItem>
+            </Menu>
           </Box>
         )
       }

@@ -33,7 +33,7 @@ const Commission = () => {
             padding: '12px',
             gap: '20px',
             justifyContent: 'space-between',
-            width: '30%'
+            width: { xl: '30%', xs: 'fit-content' }
           }}
         >
           <Typography>Monthly Completed Bookings</Typography>

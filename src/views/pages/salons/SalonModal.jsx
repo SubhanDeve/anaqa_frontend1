@@ -5,6 +5,7 @@ import CustomContainButton from 'src/@core/components/custom-button/CustomContai
 import FormField from 'src/@core/components/Form/FormField'
 import FormSelectField from 'src/@core/components/Form/FormSelectField'
 import ImageUpload from 'src/@core/components/Upload Picture'
+import SuccessDialogBox from 'src/@core/components/Dialog Box/SuccessDialogBox'
 
 const SuccessDialog = ({ open, handleClose }) => {
   return (
@@ -28,7 +29,9 @@ const SuccessDialog = ({ open, handleClose }) => {
         }}
       >
         <img src='/images/modals/done.svg' alt='Success' width={'190px'} />
-        <Typography sx={{ fontSize: '18px', fontWeight: '600', mt: 2 }}>Added Successfully</Typography>
+        <Typography sx={{ fontSize: '18px', fontWeight: '600', mt: 2, color: '#101212' }}>
+          Added Successfully
+        </Typography>
         <Typography sx={{ fontSize: '14px', color: '#757575', mt: 1 }}>
           Salon successfully added! Manage your bookings and services seamlessly on ANAQA.
         </Typography>
@@ -92,7 +95,7 @@ const SalonModal = ({ handleClose, open }) => {
             <Grid container gap={'12px'}>
               <Grid item lg={12}>
                 <Box>
-                  <ImageUpload />
+                  <ImageUpload title={`Salon's Profile`} />
                 </Box>
               </Grid>
               <Grid item lg={5.7}>
@@ -138,7 +141,12 @@ const SalonModal = ({ handleClose, open }) => {
       </Dialog>
 
       {/* Success Dialog */}
-      <SuccessDialog open={successDialogOpen} handleClose={() => setSuccessDialogOpen(false)} />
+      <SuccessDialogBox
+        open={successDialogOpen}
+        handleClose={() => setSuccessDialogOpen(false)}
+        title={'Added Successfully'}
+        description={'Salon successfully added! Manage your bookings and services seamlessly on ANAQA.'}
+      />
     </Box>
   )
 }

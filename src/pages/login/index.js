@@ -40,7 +40,7 @@ import { useSettings } from 'src/@core/hooks/useSettings'
 import themeConfig from 'src/configs/themeConfig'
 
 // ** Layout Import
-import BlankLayout from 'src/@core/layoutsss/BlankLayout'
+import BlankLayout from 'src/@core/layouts/BlankLayout'
 
 // ** Demo Imports
 import FooterIllustrationsV2 from 'src/views/pages/auth/FooterIllustrationsV2'

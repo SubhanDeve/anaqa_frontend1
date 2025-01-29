@@ -5,7 +5,7 @@ const routes = [
     icon: 'dashboard'
   },
   {
-    title: 'Saloon',
+    title: 'Salon',
     path: '/salons',
     icon: 'saloon',
   },

@@ -15,7 +15,7 @@ const conduct = [
   {
     id: 2,
     icon: '/icons/totalcard/saloon.svg',
-    name: 'Total Saloons',
+    name: 'Total Salons',
     total: '512',
     countPercent: '16%',
     tradebgColor: '#FFF2F1',

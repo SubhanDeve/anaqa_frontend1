@@ -8,7 +8,7 @@ const Terms = () => {
     <Box sx={{ display: 'grid', gap: '18px' }}>
       <Typography>Write your description about your company’s terms & conditions</Typography>
       <FormField label={'Heading'} placeholder={'Terms & Conditions'} />
-      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
         <label style={{ fontSize: '14px', color: '#6C757D' }}>Body Text</label>
         <textarea
           style={{ border: '1px solid #E3E3E3', borderRadius: '5px', padding: '8px' }}

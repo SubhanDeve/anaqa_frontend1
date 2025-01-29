@@ -2,6 +2,7 @@ import { Box, Dialog, Switch, TextareaAutosize, TextField, Typography } from '@m
 import React from 'react'
 import CustomOutlineButton from 'src/@core/components/custom-button'
 import CustomContainButton from 'src/@core/components/custom-button/CustomContainButton'
+import FormField from 'src/@core/components/Form/FormField'
 
 const FaqModal = ({ handleClose, open }) => {
   return (
@@ -37,45 +38,20 @@ const FaqModal = ({ handleClose, open }) => {
           </Box>
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: '12px', mt: '30px' }}>
             <Box>
-              <label>Type</label>
-              <TextField
-                autoFocus
-                required
-                margin='dense'
-                name='type'
-                type='text'
-                placeholder='Rayna Work'
-                fullWidth
-                variant='outlined'
-              />
+              <FormField label={'Type'} />
             </Box>
             <Box>
-              <label>Question</label>
-              <TextField
-                autoFocus
-                required
-                margin='dense'
-                name='question'
-                type='text'
-                placeholder='Enter The Question'
-                fullWidth
-                variant='outlined'
-                size='medium'
-              />
+              <FormField label={'Question'} />
             </Box>
-            <Box>
-              <label>Answer</label>
-              <TextareaAutosize
-                style={{
-                  width: '100%',
-                  border: '1px solid #c4c4c4',
-                  borderRadius: '8px'
-                }}
-                wrap={true}
-                minRows={6}
-              />
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              <label style={{ fontSize: '14px', color: '#6C757D' }}>Body Text</label>
+              <textarea
+                style={{ border: '1px solid #E3E3E3', borderRadius: '5px', padding: '8px' }}
+                placeholder=''
+                rows={5}
+              ></textarea>
             </Box>
-            <Box flex>
+            <Box sx={{ display: 'flex', alignItems: 'center' }}>
               <label>Active</label>
               <Switch />
             </Box>

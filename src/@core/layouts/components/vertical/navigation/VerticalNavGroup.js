@@ -19,12 +19,14 @@ import clsx from 'clsx'
 
 // ** Icon Imports
 import Icon from 'src/@core/components/icon'
+import MenuIcon from 'src/icons'
 
 // ** Configs Import
 import themeConfig from 'src/configs/themeConfig'
 
 // ** Utils
 import { hasActiveChild, removeChildren } from 'src/@core/layouts/utils'
+import { handleURLQueries } from 'src/@core/layouts/utils'
 
 // ** Custom Components Imports
 import VerticalNavItems from './VerticalNavItems'
@@ -198,6 +200,14 @@ const VerticalNavGroup = props => {
     }
   }
 
+  const isNavLinkActive = () => {
+    if (router.pathname === item.path || handleURLQueries(router, item.path)) {
+      return true
+    } else {
+      return false
+    }
+  }
+
   return (
     <CanViewNavGroup navGroup={item}>
       <Fragment>
@@ -236,7 +246,11 @@ const VerticalNavGroup = props => {
               }
             }}
           >
-            <img src='/icons/layout/subMenu.svg' />
+            <MenuIcon
+              path={icon}
+              color={groupActive.includes(item.title) ? '#CD929D' : ''}
+              isSelected={groupActive.includes(item.title)}
+            />
             {isSubToSub ? null : (
               <ListItemIcon
                 sx={{
@@ -255,8 +269,12 @@ const VerticalNavGroup = props => {
                 {...((themeConfig.menuTextTruncate || (!themeConfig.menuTextTruncate && navCollapsed && !navHover)) && {
                   noWrap: true
                 })}
+                sx={{
+                  color: groupActive.includes(item.title) ? '#CD929D' : 'inherit',
+                  fontWeight: groupActive.includes(item.title) ? '700' : '500'
+                }}
               >
-                <Translations text={item.title}  />
+                <Translations text={item.title} />
               </Typography>
               <Box
                 className='menu-item-meta'
@@ -298,7 +316,7 @@ const VerticalNavGroup = props => {
               transition: 'all 0.25s ease-in-out'
             }}
           >
-            <img src='/icons/layout/subMenu.svg' />
+            {/* <img src={'/icons/layout/subMenu.svg'} alt={'-'} /> */}
             <VerticalNavItems
               {...props}
               parent={item}

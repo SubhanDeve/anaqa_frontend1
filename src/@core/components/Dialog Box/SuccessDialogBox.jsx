@@ -22,7 +22,7 @@ const SuccessDialogBox = ({ open, handleClose, image, title, description }) => {
           alignItems: 'center'
         }}
       >
-        <img src={'/images/modals/done.svg'} alt='Success' width={'190px'} />
+        <img src={image} alt='Success' width={'190px'} />
         <Typography sx={{ fontSize: '18px', fontWeight: '600', mt: 2, color: '#101212' }}>{title}</Typography>
         <Typography sx={{ fontSize: '14px', color: '#757575', mt: 1 }}>{description}</Typography>
       </Box>

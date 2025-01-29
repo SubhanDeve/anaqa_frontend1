@@ -67,7 +67,19 @@ const FormSection = () => {
             >
               Role
             </Typography>
-            <CustomSecondaryButton text={'Admin'} />
+            <Typography
+              sx={{
+                color: '#CD929D',
+                fontSize: '16px',
+                fontWeight: '500',
+                backgroundColor: '#FAF5F6',
+                padding: '6px 14px',
+                borderRadius: '8px',
+                width: 'fit-content'
+              }}
+            >
+              Admin
+            </Typography>
           </Grid>
         </Grid>
       </Box>

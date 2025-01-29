@@ -10,13 +10,12 @@ const CustomContainButton = ({ text, width, handleFunction, type }) => {
         width: width,
         textTransform: 'none',
         boxShadow: 'none',
-
         ':hover': { boxShadow: 'none', backgroundColor: '#B76271' }
       }}
       onClick={handleFunction}
       type={type}
     >
-      <Typography sx={{ fontSize: '16px', fontWeight: '500', lineHeight: '16px', color: 'white' }}>{text}</Typography>
+      <Typography sx={{ fontSize: '14px', fontWeight: '500', lineHeight: '20px', color: 'white' }}>{text}</Typography>
     </Button>
   )
 }

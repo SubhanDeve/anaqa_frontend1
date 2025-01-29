@@ -1,7 +1,7 @@
 import { Box, Card } from '@mui/material'
 import React from 'react'
 import CustomProgressBar from 'src/@core/components/CustomProgressBar'
-import CustomSelectMenu from 'src/@core/components/CustomSelectMenu'
+import DateTimeRange from 'src/@core/components/DateTimeRange/DateTimeRange'
 import Heading from 'src/@core/components/Heading'
 
 const BookingChart = () => {
@@ -57,7 +57,7 @@ const BookingChart = () => {
           <Heading headingText={'Booking Analytics'} />
         </Box>
         <Box>
-          <CustomSelectMenu title={'Date & Time'} bgcolor={'#F8F8F9'} menuOptions={menuOptions} />
+          <DateTimeRange bgcolor={'#F8F8F9'} />
         </Box>
       </Box>
       <Box

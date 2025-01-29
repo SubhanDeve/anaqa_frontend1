@@ -32,7 +32,6 @@ const CustomSelectMenu = ({ menuOptions, bgcolor, title, width }) => {
           padding: '10px',
           fontSize: '14px',
           color: '#6C757D',
-          border: '1px solid #E3E3E3',
           fontWeight: '400',
           '&:hover': {
             backgroundColor: 'none'

@@ -6,6 +6,7 @@ import Router from 'next/router'
 import { useState } from 'react'
 import CustomAvatar from 'src/@core/components/mui/avatar'
 import SalonProfile from '../profile'
+import SalonModal from '../SalonModal'
 
 const Columns = () => {
   const renderClient = row => {
@@ -147,11 +148,12 @@ const Columns = () => {
       flex: 0.05,
       minWidth: 100,
       field: 'actions',
-      headerName: 'Actions',
+      headerName: 'Action',
       align: 'center',
       headerAlign: 'center',
       renderCell: () => {
-        const [anchorEl, setAnchorEl] = useState(null);
+        const [anchorEl, setAnchorEl] = useState(null)
+        const [openEdit, setOpenEdit] = useState(false)
         const open = Boolean(anchorEl);
         const handleClick = (event) => {
           setAnchorEl(event.currentTarget);
@@ -185,6 +187,7 @@ const Columns = () => {
                   gap: '10px',
                   alignItems: 'center'
                 }}
+                onClick={() => setOpenEdit(true)}
               >
                 <img src='/icons/tableicons/edit.svg' width={'18px'} />
                 Edit
@@ -210,6 +213,7 @@ const Columns = () => {
                 Delete
               </MenuItem>
             </Menu>
+            <SalonModal open={openEdit} handleClose={() => setOpenEdit(false)} />
           </Box>
         )
       }

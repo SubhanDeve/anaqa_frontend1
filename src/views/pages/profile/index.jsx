@@ -1,4 +1,4 @@
-import { Avatar, Badge, Box, Card } from '@mui/material'
+import { Avatar, Badge, Box, Card, Typography } from '@mui/material'
 import React from 'react'
 import CustomContainButton from 'src/@core/components/custom-button/CustomContainButton'
 import CustomSecondaryButton from 'src/@core/components/custom-button/CustomSecondaryButton'
@@ -30,7 +30,14 @@ const ProfilePage = () => {
             gap: '20px'
           }}
         >
-          <Box sx={{ border: '1px solid #F8F8F9', borderRadius: '10px', height: 'fit-content' }}>
+          <Box
+            sx={{
+              border: '1px solid #F8F8F9',
+              borderRadius: '10px',
+              height: 'fit-content',
+              width: '22%'
+            }}
+          >
             <Box
               sx={{
                 display: 'flex',
@@ -39,7 +46,8 @@ const ProfilePage = () => {
                 padding: '20px 14px',
                 backgroundColor: '#FFF',
                 alignItems: 'center',
-                justifyContent: 'center'
+                justifyContent: 'center',
+                width: '100%'
               }}
             >
               <Box
@@ -64,9 +72,21 @@ const ProfilePage = () => {
                 >
                   <img alt='mdi:admin' src='/images/avatars/profile1.png' width={'137px'} />
                 </Badge>
-                <Heading headingText={'Makenna Ekstrom Bothman'} />
-
-                <CustomSecondaryButton text={'Admin'} />
+                <Typography sx={{ color: '#212529', fontSize: '20px', fontWeight: '700' }}>
+                  Makenna Ekstrom Bothman
+                </Typography>
+                <Typography
+                  sx={{
+                    color: '#CD929D',
+                    fontSize: '16px',
+                    fontWeight: '500',
+                    backgroundColor: '#FAF5F6',
+                    padding: '6px 14px',
+                    borderRadius: '8px'
+                  }}
+                >
+                  Admin
+                </Typography>
               </Box>
               <Box sx={{ width: '100%' }}>
                 <CustomContainButton text={'Edit Profile'} width={'100%'} />

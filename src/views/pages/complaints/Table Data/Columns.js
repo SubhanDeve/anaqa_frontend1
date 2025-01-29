@@ -1,6 +1,10 @@
 // External Imports
+import { Menu, MenuItem } from '@mui/material'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
+import { useRouter } from 'next/router'
+import { useState } from 'react'
+import SuccessDialogBox from 'src/@core/components/Dialog Box/SuccessDialogBox'
 import CustomAvatar from 'src/@core/components/mui/avatar'
 
 const Columns = () => {
@@ -108,19 +112,69 @@ const Columns = () => {
       },
     },
     {
-      flex: 0.03,
-      width: 10,
+      flex: 0.05,
+      minWidth: 100,
       field: 'actions',
-      headerName: 'Actions',
+      headerName: 'Action',
       align: 'center',
       headerAlign: 'center',
       renderCell: () => {
+        const [anchorEl, setAnchorEl] = useState(null)
+        const [openApprove, setOpenApprove] = useState(false)
+        const [openReject, setOpenReject] = useState(false)
+        const router = useRouter()
+        const open = Boolean(anchorEl);
+        const handleClick = (event) => {
+          setAnchorEl(event.currentTarget);
+        };
+        const handleClose = () => {
+          setAnchorEl(null);
+        };
 
+        const profilePage = () => {
+          router.push('/complaints/detail')
+        }
         return (
-          <Box sx={{ display: 'flex', alignItems: 'flex-start' }} >
+          <Box sx={{ display: 'flex', alignItems: 'flex-start', cursor: 'pointer' }} >
             <Box>
-              <img src='/icons/actionicon.svg' alt='...' width={'30px'} />
+              <img src='/icons/actionicon.svg' alt='...' width={'30px'} onClick={handleClick} />
             </Box>
+            <Menu anchorEl={anchorEl} open={open} onClose={handleClose} >
+              <MenuItem
+                sx={{
+                  display: 'flex',
+                  gap: '10px',
+                  alignItems: 'center'
+                }}
+                onClick={profilePage}
+              > <img src='/icons/tableicons/detail.svg' width={'18px'} />
+                View Details
+              </MenuItem>
+              <MenuItem
+                sx={{
+                  display: 'flex',
+                  gap: '10px',
+                  alignItems: 'center'
+                }}
+                onClick={() => setOpenApprove(true)}
+              >
+                <img src='/icons/tableicons/resolve.svg' width={'18px'} />
+                Resolve
+              </MenuItem>
+              <MenuItem
+                sx={{
+                  display: 'flex',
+                  gap: '10px',
+                  alignItems: 'center'
+                }}
+                onClick={() => setOpenReject(true)}
+              >
+                <img src='/icons/tableicons/ignore.svg' width={'18px'} />
+                Ignore
+              </MenuItem>
+            </Menu>
+            <SuccessDialogBox title={'Complaint Resolved!'} description={'You have resolved the complaint.'} image={'/images/modals/done.svg'} open={openApprove} handleClose={() => setOpenApprove(false)} />
+            <SuccessDialogBox title={'Complaint Ignored!'} description={'You have ignored the complaint.'} image={'/images/modals/ignore.svg'} open={openReject} handleClose={() => setOpenReject(false)} />
           </Box>
         )
       }

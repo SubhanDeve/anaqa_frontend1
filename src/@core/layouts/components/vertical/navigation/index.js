@@ -22,6 +22,7 @@ import Candle from 'src/icons/candle'
 import Logout from 'src/icons/logout'
 import { useAuth } from 'src/hooks/useAuth'
 import { useRouter } from 'next/router'
+import CandleFilled from 'src/icons/candle_filled'
 
 
 
@@ -131,8 +132,6 @@ const Navigation = props => {
       )}
       <Box sx={{ position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100vh' }}>
         <Box>
-
-
           <Box sx={{ display: 'grid', px: '18px', gap: '15px' }}>
             <hr></hr>
             <Typography sx={{ color: '#80807D', fontSize: '12px', fontWeight: '700', lineHeight: '19.2px' }}>MENU</Typography>
@@ -169,19 +168,25 @@ const Navigation = props => {
             {afterNavMenuContent && afterVerticalNavMenuContentPosition === 'static' ? afterNavMenuContent(props) : null}
           </ScrollWrapper>
         </Box>
-        <Box sx={{ display: 'flex', flexDirection: 'column', margin: 0, alignItems: 'center', gap: '10px' }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', margin: 0, alignItems: 'center' }}>
           <hr style={{ width: '90%' }}></hr>
           <ListItem>
             <ListItemButton sx={{
-              '&.Mui-focusVisible': {
+              '&.Mui-selected, &.Mui-focusVisible': {
                 backgroundColor: '#FAF5F6',
-                color: '#CD929D'
+                color: '#CD929D',
+                '& .MuiListItemIcon-root': {
+                  '& svg': {
+                    fill: '#CD929D'
+                  }
+                },
               }
             }}
               onClick={handleClick}
+              selected={router.pathname === '/settings'}
             >
               <ListItemIcon>
-                <Candle />
+                {router.pathname === '/settings' ? <CandleFilled /> : <Candle />}
               </ListItemIcon>
               <ListItemText>
                 Settings
@@ -190,9 +195,13 @@ const Navigation = props => {
           </ListItem>
           <hr style={{ width: '90%' }}></hr>
           <ListItem>
-            <ListItemButton onClick={handleLogout}>
+            <ListItemButton
+              onClick={handleLogout}
+              onFocus={(e) => e.currentTarget.querySelector('svg').classList.add('filled')}
+              onBlur={(e) => e.currentTarget.querySelector('svg').classList.remove('filled')}
+            >
               <ListItemIcon>
-                <Logout />
+                <Logout className="icon" />
               </ListItemIcon>
               <ListItemText>
                 Logout

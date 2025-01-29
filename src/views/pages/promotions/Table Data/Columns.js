@@ -1,7 +1,12 @@
 // External Imports
+import { Menu, MenuItem } from '@mui/material'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
+import { useRouter } from 'next/router'
+import { useState } from 'react'
+import DeleteDialogBox from 'src/@core/components/Dialog Box/DeleteDialogBox'
 import CustomAvatar from 'src/@core/components/mui/avatar'
+import AddPromotionModal from '../AddPromotionModal'
 
 const Columns = () => {
 
@@ -121,19 +126,69 @@ const Columns = () => {
       },
     },
     {
-      flex: 0.03,
-      width: 10,
+      flex: 0.05,
+      minWidth: 100,
       field: 'actions',
-      headerName: 'Actions',
+      headerName: 'Action',
       align: 'center',
       headerAlign: 'center',
       renderCell: () => {
+        const [anchorEl, setAnchorEl] = useState(null)
+        const [openDelete, setOpenDelete] = useState(false)
+        const [openEdit, setOpenEdit] = useState(false)
+        const router = useRouter()
+        const open = Boolean(anchorEl);
+        const handleClick = (event) => {
+          setAnchorEl(event.currentTarget);
+        };
+        const handleClose = () => {
+          setAnchorEl(null);
+        };
 
+        const profilePage = () => {
+          router.push('/promotions/detail')
+        }
         return (
-          <Box sx={{ display: 'flex', alignItems: 'flex-start' }} >
+          <Box sx={{ display: 'flex', alignItems: 'flex-start', cursor: 'pointer' }} >
             <Box>
-              <img src='/icons/actionicon.svg' alt='...' width={'30px'} />
+              <img src='/icons/actionicon.svg' alt='...' width={'30px'} onClick={handleClick} />
             </Box>
+            <Menu anchorEl={anchorEl} open={open} onClose={handleClose} >
+              <MenuItem
+                sx={{
+                  display: 'flex',
+                  gap: '10px',
+                  alignItems: 'center'
+                }}
+                onClick={profilePage}
+              > <img src='/icons/tableicons/detail.svg' width={'18px'} />
+                View Details
+              </MenuItem>
+              <MenuItem
+                sx={{
+                  display: 'flex',
+                  gap: '10px',
+                  alignItems: 'center'
+                }}
+                onClick={() => setOpenEdit(true)}
+              >
+                <img src='/icons/tableicons/edit.svg' width={'18px'} />
+                Edit
+              </MenuItem>
+              <MenuItem
+                sx={{
+                  display: 'flex',
+                  gap: '10px',
+                  alignItems: 'center'
+                }}
+                onClick={() => setOpenDelete(true)}
+              >
+                <img src='/icons/tableicons/delete.svg' width={'20px'} />
+                Delete
+              </MenuItem>
+            </Menu>
+            <DeleteDialogBox title={'Are you Sure?'} description={'Are you sure you want to delete the Promotion?'} image={'/images/modals/delete.svg'} open={openDelete} handleClose={() => setOpenDelete(false)} />
+            <AddPromotionModal open={openEdit} handleClose={() => setOpenEdit(false)} />
           </Box>
         )
       }

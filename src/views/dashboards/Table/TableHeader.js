@@ -3,6 +3,7 @@
 import { Typography } from '@mui/material'
 import Box from '@mui/material/Box'
 import CustomDateMenu from 'src/@core/components/CustomDateMenu'
+import DateTimeRange from 'src/@core/components/DateTimeRange/DateTimeRange'
 import Search from 'src/@core/components/search'
 
 const TableHeader = props => {
@@ -22,8 +23,11 @@ const TableHeader = props => {
       }}
     >
       <Typography sx={{ fontSize: '18px', fontWeight: '600', color: '#333' }}>{pageTitle}</Typography>
-      <CustomDateMenu />
-      <Search />
+      <Box sx={{ display: 'flex', gap: '10px' }}>
+
+        <DateTimeRange bgcolor={'#F8F8F9'} />
+        <Search />
+      </Box>
     </Box>
   )
 }

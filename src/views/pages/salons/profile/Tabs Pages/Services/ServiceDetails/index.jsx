@@ -8,24 +8,6 @@ import TextBox from 'src/views/pages/salons/viewbookings/components/TextBox'
 
 const ServiceDetails = () => {
   const router = useRouter()
-  // const ServiceInfo = [
-  //   {
-  //     title: 'Service Id',
-  //     detail: '5652982'
-  //   },
-  //   {
-  //     title: 'Sub Service 1',
-  //     detail: 'Long Hair Cut'
-  //   },
-  //   {
-  //     title: 'Service Name',
-  //     detail: 'Hair Cut'
-  //   },
-  //   {
-  //     title: 'Estimated Time',
-  //     detail: '1 Hr'
-  //   }
-  // ]
 
   const ServiceDetail = [
     {

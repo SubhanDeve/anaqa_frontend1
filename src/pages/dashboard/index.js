@@ -17,6 +17,7 @@ import SaloonSuggestions from 'src/views/dashboards/Charts/SaloonSuggestions'
 import RequestCard from 'src/views/dashboards/Charts/RequestCard'
 import CustomPageHeading from 'src/@core/components/CustomPageHeading'
 import CustomSelectMenu from 'src/@core/components/CustomSelectMenu'
+import DateTimeRange from 'src/@core/components/DateTimeRange/DateTimeRange'
 
 const Dashboard = () => {
   const { language } = useLanguage()
@@ -39,7 +40,7 @@ const Dashboard = () => {
         <Box sx={{ display: { xs: 'grid', lg: 'flex' }, gap: '5px' }}>
           <CustomSelectMenu menuOptions={menuOptions} bgcolor={'#FFFFFF'} title={'Salon'} />
           <CustomSelectMenu menuOptions={menuOptions} bgcolor={'#FFFFFF'} title={'City'} />
-          <CustomSelectMenu menuOptions={menuOptions} bgcolor={'#FFFFFF'} title={'Date & Time'} />
+          <DateTimeRange bgcolor={'#FFFFFF'} />
         </Box>
       </Box>
       <Grid container spacing={6}>

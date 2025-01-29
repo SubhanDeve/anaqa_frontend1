@@ -10,40 +10,52 @@ import Note from './note'
 import Task from './task'
 import Discount from './discount'
 import Folder from './folder'
-import MessageQuestion from './MessageQuestion'
 import Textdocument from './Textdocument'
 import Support24 from './Support24'
+import ShopFilled from './shop_filled'
+import DashboardFilled from './dashboard_filled'
+import LogoutFilled from './logout_filled'
+import CandleFilled from './candle_filled'
+import MessageFilled from './message_filled'
+import ProfileFilled from './profile_filled'
+import TicketFilled from './ticket_filled'
+import NoteFilled from './note_filled'
+import TaskFilled from './task_filled'
+import DiscountFilled from './discount_filled'
+import FolderopenFilled from './folderopen_filled'
+import TextDocumentFilled from './TextDocument_filled'
+import Suppport24Filled from './Suppport24_filled'
 
-const SVGIcon = ({ path, color }) => {
+const SVGIcon = ({ path, color, isSelected }) => {
   switch (true) {
     case path.includes('dashboard'):
-      return <Dashboard color={color} />
+      return isSelected ? <DashboardFilled color={color} /> : <Dashboard color={color} />
     case path.includes('saloon'):
-      return <Shop color={color} />
+      return isSelected ? <ShopFilled color={color} /> : <Shop color={color} />
     case path.includes('users'):
-      return <Profile color={color} />
+      return isSelected ? <ProfileFilled color={color} /> : <Profile color={color} />
     case path.includes('bookings'):
-      return <Ticket color={color} />
+      return isSelected ? <TicketFilled color={color} /> : <Ticket color={color} />
     case path.includes('services'):
-      return <Task color={color} />
+      return isSelected ? <TaskFilled color={color} /> : <Task color={color} />
     case path.includes('promotions'):
-      return <Discount color={color} />
+      return isSelected ? <DiscountFilled color={color} /> : <Discount color={color} />
     case path.includes('reviews'):
-      return <Note color={color} />
+      return isSelected ? <NoteFilled color={color} /> : <Note color={color} />
     case path.includes('requests'):
-      return <Folder color={color} />
+      return isSelected ? <FolderopenFilled /> : <Folder color={color} />
     case path.includes('complaints'):
-      return <MessageQuestion color={color} />
+      return isSelected ? <MessageFilled /> : <Message color={color} />
     case path.includes('contract'):
-      return <Textdocument color={color} />
+      return isSelected ? <TextDocumentFilled /> : <Textdocument color={color} />
     case path.includes('support'):
-      return <Support24 color={color} />
+      return isSelected ? <Suppport24Filled /> : <Support24 color={color} />
     case path.includes('faqs'):
-      return <Message color={color} />
+      return isSelected ? <MessageFilled color={color} /> : <Message color={color} />
     case path.includes('settings'):
-      return <Candle color={color} />
+      return isSelected ? <CandleFilled color={color} /> : <Candle color={color} />
     case path.includes('logout'):
-      return <Logout color={color} />
+      return isSelected ? <LogoutFilled color={color} /> : <Logout color={color} />
     default:
       return null
   }

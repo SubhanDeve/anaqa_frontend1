@@ -154,7 +154,7 @@ const VerticalNavLink = ({
               }}
             >
               {/* <UserIcon icon={icon} /> */}
-              <MenuIcon path={icon} color={isNavLinkActive() ? '#CD929D' : ''} />
+              <MenuIcon path={icon} color={isNavLinkActive() ? '#CD929D' : ''} isSelected={isNavLinkActive()} />
             </ListItemIcon>
           )}
 

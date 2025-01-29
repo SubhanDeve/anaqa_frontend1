@@ -8,6 +8,9 @@ const CustomSecondaryButton = ({ text, width, handlePrint, type }) => {
       sx={{
         backgroundColor: '#F5EAEC',
         color: '#CD929D',
+        fontSize: '14px',
+        fontWeight: '500',
+        lineHeight: '20px',
         boxShadow: 'none',
         textTransform: 'none',
         ':hover': { boxShadow: 'none', backgroundColor: '#ECD5D9' },

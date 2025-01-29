@@ -157,7 +157,7 @@ const Columns = () => {
               </MenuItem>
             </Menu>
             <DeleteDialogBox open={deleteDialogOpen} handleClose={() => setDeleteDialogOpen(false)} image={'/images/modals/delete.svg'} title={'Are you Sure?'} description={'Are you sure you want to delete the Review?'} />
-            <SuccessDialogBox open={successDialogOpen} handleClose={() => setSuccessDialogOpen(false)} title={'Service Confirmed'} description={'Your service is confirmed! You can now manage your appointments and services effortlessly on ANAQA.'} />
+            <SuccessDialogBox open={successDialogOpen} handleClose={() => setSuccessDialogOpen(false)} title={'Service Confirmed'} description={'Your service is confirmed! You can now manage your appointments and services effortlessly on ANAQA.'} image={'/images/modals/done.svg'} />
           </Box>
         )
       }

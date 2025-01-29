@@ -115,5 +115,5 @@ export const RowData = [
     city: 'Jeddah',
     category: 'Salon',
     action: '...'
-  }
+  },
 ]

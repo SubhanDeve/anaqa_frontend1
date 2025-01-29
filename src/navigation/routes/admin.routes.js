@@ -46,12 +46,12 @@ const routes = [
     children: [
       {
         title: 'Salon Reviews',
-        path: '/reviews',
+        path: '/reviews/salonreviews',
         icon: ''
       },
       {
         title: 'Professional Reviews',
-        path: '/professional',
+        path: '/reviews/professionalreviews',
         icon: ''
       },
     ]
@@ -62,27 +62,27 @@ const routes = [
     children: [
       {
         title: 'Salon Registration',
-        path: '/requests',
-        icon: ''
-      },
-      {
-        title: 'Sub Service Addition',
-        path: '#',
+        path: '/requests/salonregistration',
         icon: ''
       },
       {
         title: 'Service Addition',
-        path: '#',
+        path: '/requests/serviceaddition',
+        icon: ''
+      },
+      {
+        title: 'Sub Service Addition',
+        path: '/requests/subserviceaddition',
         icon: ''
       },
       {
         title: 'Pricing Change Request',
-        path: '#',
+        path: '/requests/pricingchangerequest',
         icon: ''
       },
       {
         title: 'Promotion Request',
-        path: '#',
+        path: '/requests/promotionrequest',
         icon: ''
       },
     ]

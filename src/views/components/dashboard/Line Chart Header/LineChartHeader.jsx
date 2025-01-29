@@ -1,6 +1,7 @@
 import { Box, Typography } from '@mui/material'
 import React from 'react'
 import CustomSelectMenu from 'src/@core/components/CustomSelectMenu'
+import DateTimeRange from 'src/@core/components/DateTimeRange/DateTimeRange'
 import Heading from 'src/@core/components/Heading'
 
 const LineChartHeader = () => {
@@ -39,7 +40,7 @@ const LineChartHeader = () => {
         <Box sx={{ display: 'flex', gap: '5px' }}>
           <CustomSelectMenu menuOptions={menuOptions} bgcolor={'#F8F8F9'} title={'Salon'} />
           <CustomSelectMenu menuOptions={menuOptions} bgcolor={'#F8F8F9'} title={'City'} />
-          <CustomSelectMenu menuOptions={menuOptions} bgcolor={'#F8F8F9'} title={'Date & Time'} />
+          <DateTimeRange bgcolor={'#F8F8F9'} />
         </Box>
       </Box>
     </Box>

@@ -6,6 +6,10 @@ import FormField from 'src/@core/components/Form/FormField'
 import FormSelectField from 'src/@core/components/Form/FormSelectField'
 import ImageUpload from 'src/@core/components/Upload Picture'
 import SuccessDialogBox from 'src/@core/components/Dialog Box/SuccessDialogBox'
+import PhoneInput from 'react-phone-input-2'
+import { th } from 'date-fns/locale'
+import 'react-phone-input-2/lib/style.css'
+import FormNumberField from 'src/@core/components/Form/FormNumberField'
 
 const SuccessDialog = ({ open, handleClose }) => {
   return (
@@ -93,25 +97,25 @@ const SalonModal = ({ handleClose, open }) => {
           </Box>
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: '12px', mt: '30px' }}>
             <Grid container gap={'12px'}>
-              <Grid item lg={12}>
+              <Grid item xs={12}>
                 <Box>
                   <ImageUpload title={`Salon's Profile`} />
                 </Box>
               </Grid>
               <Grid item lg={5.7}>
-                <FormField label={'Phone Number'} placeholder={'Enter phone number'} name={'number'} />
+                <FormNumberField label={'Phone Number'} />
               </Grid>
               <Grid item lg={6}>
-                <FormField label={'Salon Name'} placeholder={'Enter salon name'} name={'salonName'} />
+                <FormField label={'Salon Name*'} placeholder={'Enter salon name'} name={'salonName'} />
               </Grid>
               <Grid item lg={5.7}>
-                <FormField label={'Owner Name'} placeholder={'Enter owner name'} name={'ownerName'} />
+                <FormField label={'Owner Name*'} placeholder={'Enter owner name'} name={'ownerName'} />
               </Grid>
               <Grid item lg={6}>
                 <FormField label={'Email (Optional)'} placeholder={'Enter your email'} name={'email'} />
               </Grid>
               <Grid item lg={12}>
-                <FormField label={'Address'} placeholder={'Enter your Address'} name={'address'} />
+                <FormField label={'Address* '} placeholder={'Enter your Address'} name={'address'} />
               </Grid>
               <Grid item lg={12}>
                 <FormSelectField label={'Category'} name={'category'} option={option} />
@@ -146,6 +150,7 @@ const SalonModal = ({ handleClose, open }) => {
         handleClose={() => setSuccessDialogOpen(false)}
         title={'Added Successfully'}
         description={'Salon successfully added! Manage your bookings and services seamlessly on ANAQA.'}
+        image={'/images/modals/done.svg'}
       />
     </Box>
   )

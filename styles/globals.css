@@ -27,20 +27,8 @@ code:not([class*='language-']):after {
 code[class*='language-'] {
   padding: 0;
 }
-.css-16mspmx-MuiStepLabel-label.MuiStepLabel-alternativeLabel.Mui-active {
-  color: #04463a;
-}
-#AddCampusBar::-webkit-scrollbar {
-  width: 0;
-  height: 0;
-}
 
-/* Hide horizontal scrollbar (optional) */
-#AddCampusBar::-webkit-scrollbar-thumb {
-  width: 0;
-  height: 0;
-}
-
+/* Odometer Animation customizations */
 .stepper {
   display: flex;
   position: relative;
@@ -60,6 +48,12 @@ code[class*='language-'] {
   line-height: 20px;
 }
 
+.comma {
+  font-weight: 600;
+  color: #212529;
+}
+
+/* Custom Rich text Component */
 .ql-toolbar.ql-snow {
   border: 1px solid #e3e3e3;
   border-radius: 5px;
@@ -77,4 +71,120 @@ code[class*='language-'] {
 
 .ql-toolbar.ql-snow + .ql-container.ql-snow {
   border-top: 1px solid #e3e3e3 !important;
+}
+
+@keyframes textMovementLeft {
+  from {
+    left: 0;
+  }
+  to {
+    left: -3%;
+  }
+}
+
+/* Custom date range Picker */
+.rdrDateRangePickerWrapper {
+  overflow: hidden;
+}
+.rdrDateDisplayWrapper {
+  display: none;
+}
+.rdrDefinedRangesWrapper {
+  display: none;
+}
+.rdrMonthAndYearPickers select {
+  color: #cd929d !important;
+}
+.rdrMonthAndYearPickers {
+  font-size: 18px;
+}
+.rdrWeekDay {
+  color: #bbc0c3 !important;
+}
+.rdrInRange {
+  background-color: #faf5f6 !important;
+  left: -20px !important;
+  right: -20px !important;
+  z-index: 0 !important;
+}
+.rdrDay:not(.rdrDayPassive) .rdrInRange ~ .rdrDayNumber span,
+.rdrDay:not(.rdrDayPassive) .rdrSelected ~ .rdrDayNumber span {
+  color: #cd929d !important;
+}
+.rdrStartEdge {
+  left: 9px !important;
+  border-radius: 100px !important;
+  right: 9px !important;
+}
+.rdrEndEdge {
+  left: 9px !important;
+  border-radius: 100px !important;
+  right: 9px !important;
+}
+.rdrDay span {
+  z-index: 100;
+}
+.rdrPprevButton i {
+  /* border-width: 5px 7px 5px 10px !important; */
+  border-color: transparent #cd929d transparent transparent !important;
+}
+.rdrNextButton i {
+  /* border-width: 5px 6px 4px 8px !important; */
+  border-color: transparent transparent transparent #cd929d !important;
+}
+.rdrNextPrevButton {
+  background-color: #faf5f6 !important;
+}
+
+/*Custom Phone Text  */
+
+.react-tel-input .form-control {
+  width: 100% !important;
+  font-size: 13px !important;
+  border: 1px solid #e3e3e3 !important;
+  padding: 21px 21px 21px 42px !important;
+}
+
+.react-tel-input .flag-dropdown {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.react-tel-input .flag-dropdown.open .selected-flag {
+  background: none !important;
+}
+
+.react-tel-input .selected-flag:hover,
+.react-tel-input .selected-flag:focus {
+  background: none !important;
+}
+
+/* Customized Slider */
+.css-1jhnb90-MuiSwitch-root {
+  width: 64px !important;
+}
+
+.css-1h16cre-MuiSwitch-thumb {
+  background-color: white !important;
+  width: 17px !important;
+  height: 17px !important;
+  top: 5px !important;
+  position: relative !important;
+  z-index: 0 !important;
+  left: 5px !important;
+}
+
+.css-ard0ii-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
+  background-color: #ecd5d9 !important;
+  border: 1px solid #cd929d !important;
+}
+
+.css-tj8d99-MuiSwitch-track {
+  height: 22px !important;
+  width: 44px !important;
+  background-color: #eae9ec !important;
+}
+
+.css-ard0ii-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked:hover {
+  background-color: transparent !important;
 }

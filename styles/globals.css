@@ -83,6 +83,9 @@ code[class*='language-'] {
 }
 
 /* Custom date range Picker */
+.css-ubifyk{
+  padding: 0px !important;
+}
 .rdrDateRangePickerWrapper {
   overflow: hidden;
 }
@@ -160,12 +163,12 @@ code[class*='language-'] {
 }
 
 /* Customized Slider */
-.css-1jhnb90-MuiSwitch-root {
+.css-fei9ml {
   width: 64px !important;
   padding: 10px !important;
 }
 
-.css-1h16cre-MuiSwitch-thumb {
+.css-xbruqu {
   background-color: white !important;
   width: 17px !important;
   height: 17px !important;
@@ -180,7 +183,7 @@ code[class*='language-'] {
   border: 1px solid #cd929d !important;
 }
 
-.css-tj8d99-MuiSwitch-track {
+.css-1khxa25 {
   height: 22px !important;
   width: 44px !important;
   background-color: #eae9ec !important;

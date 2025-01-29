@@ -178,7 +178,7 @@ code[class*='language-'] {
   left: 5px !important;
 }
 
-.css-ard0ii-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
+.css-16su1n8.Mui-checked + .MuiSwitch-track {
   background-color: #ecd5d9 !important;
   border: 1px solid #cd929d !important;
 }
@@ -191,4 +191,8 @@ code[class*='language-'] {
 
 .css-ard0ii-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked:hover {
   background-color: transparent !important;
+}
+
+.css-4mb1j7{
+  display: none !important;
 }
